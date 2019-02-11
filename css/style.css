@@ -99,7 +99,7 @@ h2 {
 .profile h2 {
 	font-size: 20px;
 	  font-weight: 300;
-	  color: #aaa;
+	  color: #929;
 	  margin-top: 10px;
 	  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	  font-style: normal;
@@ -651,7 +651,7 @@ h2.month {
 }
 
 a.symbol {
-    color: #cdd4da;
+    color: #768899;
     font-size: 2rem;
     text-decoration: none;
     margin-right: 0.3rem;
