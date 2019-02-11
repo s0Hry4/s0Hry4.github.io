@@ -286,7 +286,7 @@ p.small {
 
 blockquote {
 	padding-left: 15px;
-	border-left: 3px solid #eee;
+	border-left: 3px solid #777;
 }
 
 hr {
@@ -294,7 +294,7 @@ hr {
 	border: none;
 	height: 1px;
 	margin: 40px auto;
-	background: #eee;
+	background: #777;
 }
 
 span.code { font-family:Menlo, Monaco, Courier; background-color:#EEE; font-size:14px; }
@@ -384,7 +384,7 @@ Post List
 }
 
 #post-list li,#archive-list li {
-	border-top: 1px solid #eee;
+	border-top: 1px solid #777;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	list-style-type: none;
@@ -392,7 +392,7 @@ Post List
 }
 
 #post-list li:last-child {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #777;
 }
 
 #post-list a {
@@ -410,7 +410,7 @@ Post List
 }
 
 #post-list-footer {
-	border-top: 1px solid #eee;
+	border-top: 1px solid #777;
 	margin-top: 20px;
 	padding-top: 100px;
 }
@@ -449,13 +449,13 @@ Post List
 	font-size: 13px;
 	font-weight: bold;
 	line-height: 1.4;
-	border-top: 1px solid #eee;
+	border-top: 1px solid #777;
 	padding-top: 40px;
 	margin-bottom: 40px;
 	padding-bottom: 40px;
 	margin-top: 40px;
 	color:#444;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #777;
 }
 
 #post-meta div span {
@@ -552,7 +552,7 @@ h2.month {
 	margin-top: 40px;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #777;
 }
 
 #archive-list li:last-child {
@@ -584,7 +584,7 @@ h2.month {
   border-radius: 50%;
   margin-top: 3px;
   margin-right: 20px;
-  box-shadow: 0 0 0 3px #fff, 0 0 0 4px #eee;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4px #777;
 }
 
 #post-list.archive.readmore h3{
