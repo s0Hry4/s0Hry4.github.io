@@ -13,10 +13,10 @@
     
     <item>
       <title>GitHubPages&#43;HUGOでブログを開設する</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/12/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</link>
       <pubDate>Tue, 12 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/12/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</guid>
       <description>GitHub Pagesとは GitHubが提供する静的サイトのホスティングサービスです。サーバーを準備する必要がなく、簡単かつ無料でWebページを公開することができるのでとても便利です。
  静的ファイル(HTML,CSS,javascript,画像)を公開できる。(データベースを用いるような動的なページは公開できない) 独自ドメインを割り当てることができる。(別途ドメインの取得が必要) ユーザー/組織ページ、プロジェクトページが作成できる。  制限として、ソースリポジトリの容量は1GB以下、ビルドは1時間あたり10回などがあります。詳しくは公式のヘルプを参考にしてください。
 What is GitHub Pages? - User Docmentation
@@ -34,10 +34,10 @@ https://gohugo.io/getting-started/quick-start/
     
     <item>
       <title>MarkDownマニュアル</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/10/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/markdown_manual/</link>
       <pubDate>Sun, 10 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/10/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/markdown_manual/</guid>
       <description>MarkDown記法 見出し1 見出し2 見出し3 見出し4 見出し5 見出し6 # 見出し1 ## 見出し2 ### 見出し3 #### 見出し4 ##### 見出し5 ###### 見出し6  引用  この文章は引用です
  &amp;gt;この文章は引用です  リンク Wiki:Markdown:WikiのMarkdownのページ
 [Wiki:Markdown](https://ja.wikipedia.org/wiki/Markdown):WikiのMarkdownのページ  強調 ここがemタグで強調されます

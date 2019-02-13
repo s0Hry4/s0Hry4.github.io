@@ -13,10 +13,10 @@
     
     <item>
       <title>MarkDownマニュアル</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/10/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/markdown_manual/</link>
       <pubDate>Sun, 10 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/10/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/markdown_manual/</guid>
       <description>MarkDown記法 見出し1 見出し2 見出し3 見出し4 見出し5 見出し6 # 見出し1 ## 見出し2 ### 見出し3 #### 見出し4 ##### 見出し5 ###### 見出し6  引用  この文章は引用です
  &amp;gt;この文章は引用です  リンク Wiki:Markdown:WikiのMarkdownのページ
 [Wiki:Markdown](https://ja.wikipedia.org/wiki/Markdown):WikiのMarkdownのページ  強調 ここがemタグで強調されます
