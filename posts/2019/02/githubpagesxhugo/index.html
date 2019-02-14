@@ -66,7 +66,7 @@
                     </h1>
                     <h2 class="headline">
                     Feb 12, 2019 10:29
-                    · 361 words
+                    · 364 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -90,7 +90,7 @@
 <ul>
 <li><a href="#github-pagesとは">GitHub Pagesとは</a></li>
 <li><a href="#hugoとは">HUGOとは</a></li>
-<li><a href="#導入手順">導入手順</a>
+<li><a href="#導入">導入</a>
 <ul>
 <li><a href="#githubの準備">GitHubの準備</a>
 <ul>
@@ -111,15 +111,15 @@
 </ul></li>
 <li><a href="#githubにhugoをプッシュする">GitHubにHUGOをプッシュする</a>
 <ul>
-<li><a href="#1-hugoプロジェクトのリモートリポジトリを設定する">1.HUGOプロジェクトのリモートリポジトリを設定する</a></li>
+<li><a href="#1-hugoプロジェクトにリモートリポジトリを設定する">1.HUGOプロジェクトにリモートリポジトリを設定する</a></li>
 <li><a href="#2-ユーザー名-組織名-github-ioをsubmoduleとして取り込む">2.[ユーザー名/組織名].github.ioをsubmoduleとして取り込む</a></li>
 <li><a href="#3-hugoコマンドでビルドする">3.hugoコマンドでビルドする</a></li>
 <li><a href="#4-公開用ファイルをプッシュする">4.公開用ファイルをプッシュする</a></li>
 <li><a href="#5-hugoプロジェクトをプッシュする">5.HUGOプロジェクトをプッシュする</a></li>
 </ul></li>
-<li><a href="#完了">完了</a></li>
 </ul></li>
-<li><a href="#スクリプトで公開を自動化する">スクリプトで公開を自動化する</a></li>
+<li><a href="#記事を更新する">記事を更新する</a></li>
+<li><a href="#スクリプトでデプロイを自動化する">スクリプトでデプロイを自動化する</a></li>
 <li><a href="#まとめ">まとめ</a>
 <ul>
 <li><a href="#評価">評価</a>
@@ -168,7 +168,7 @@
 
 <p>自分でテンプレートを編集する場合はGo Templatesの知識が必要になりますが、基本的にHTMLやjavascript、コマンド実行の経験がある方なら苦労せず導入できます。静的ジェネレータはHUGO以外にもjekyllやGatsbyなど色々あります。高速という点でHUGOを選んでみました。</p>
 
-<h1 id="導入手順">導入手順</h1>
+<h1 id="導入">導入</h1>
 
 <h2 id="githubの準備">GitHubの準備</h2>
 
@@ -299,7 +299,7 @@ theme = &quot;ananke&quot;
 
 <p>参考:<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHUB | HUGO</a></p>
 
-<h3 id="1-hugoプロジェクトのリモートリポジトリを設定する">1.HUGOプロジェクトのリモートリポジトリを設定する</h3>
+<h3 id="1-hugoプロジェクトにリモートリポジトリを設定する">1.HUGOプロジェクトにリモートリポジトリを設定する</h3>
 
 <p>HUGOプロジェクトは既に<code>git init</code>でリポジトリ化されているのでリモートの情報を設定します。リポジトリはhugo_sourceを指定します。</p>
 
@@ -361,21 +361,22 @@ git commit -m &quot;[コミットメッセージ]&quot;
 git push origin master
 </code></pre>
 
-<h2 id="完了">完了</h2>
+<h1 id="記事を更新する">記事を更新する</h1>
 
-<p>これでGitHub Pagesの設置は以上です。</p>
+<p>GitHub Pagesを設置する作業は以上です。</p>
 
 <p>記事の更新は基本的に、</p>
 
 <ol>
-<li><strong>MarkDownで記事を書く</strong></li>
-<li><strong>ビルドする</strong></li>
-<li><strong>プッシュする</strong></li>
+<li><strong><code>hugo new [記事タイトル.md]</code>でファイルを作成</strong></li>
+<li><strong>MarkDown記法で記事を書く</strong></li>
+<li><strong><code>hugo</code>でビルドする</strong></li>
+<li><strong>GitHubのリモートリポジトリにプッシュする</strong></li>
 </ol>
 
 <p>という流れになります。</p>
 
-<h1 id="スクリプトで公開を自動化する">スクリプトで公開を自動化する</h1>
+<h1 id="スクリプトでデプロイを自動化する">スクリプトでデプロイを自動化する</h1>
 
 <p>上記の手順を手動で行ってもいいのですがシェルスクリプトで自動化します。</p>
 
@@ -425,7 +426,7 @@ git commit -m &quot;$msg&quot;
 git push origin master
 </code></pre>
 
-<p>これで<code>sh deoloy.sh</code>コマンドを実行することでビルドからプッシュまでを自動でやってくれます。</p>
+<p>これで記事が完成した後に<code>sh deoloy.sh</code>コマンドを実行することでビルドからプッシュまでを自動でやってくれます。</p>
 
 <h1 id="まとめ">まとめ</h1>
 
@@ -456,7 +457,7 @@ git push origin master
 
 <h2 id="おわりに">おわりに</h2>
 
-<p><code>hugo</code>コマンドにも色々なオプションがあるようです。また、<code>config.tomol</code>にパラメータを追加したり<code>default.md</code>をカスタマイズすることでより簡単かつ便利に運用ができそうだと感じました。その辺のTipsも今後まとめていきたいと思います。</p>
+<p><code>hugo</code>コマンドには色々なオプションがあります。また、<code>config.tomol</code>にパラメータを追加したり<code>default.md</code>をカスタマイズすることでより簡単かつ便利に運用ができそうです。その辺のTipsも今後まとめていきたいと思います。</p>
 
                 </section>
             </article>
