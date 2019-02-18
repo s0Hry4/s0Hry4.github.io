@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技術とか日々の記録</title>
+    <title>pulog</title>
     <link>https://s0Hry4.github.io/</link>
-    <description>Recent content on 技術とか日々の記録</description>
+    <description>Recent content on pulog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 18 Feb 2019 12:41:12 +0900</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>HUGOよく使うコマンドまとめ</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/hugo_commands/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/hugo_commands/hugo_commands/</link>
       <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/hugo_commands/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/hugo_commands/hugo_commands/</guid>
       <description> 自分がよく利用するコマンド、今後使いそうなコマンドのまとめ。随時更新予定。
 HUGO公式リファレンス：https://gohugo.io/commands/
 1.hugo version HUGOのバージョンを確認するコマンド。
@@ -30,10 +30,10 @@ hugo server [flags]     flags  詳細     -D &amp;ndash;buildDrafts draft(下書
     
     <item>
       <title>GitHubPages&#43;HUGOでブログを開設する</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/githubpagesxhugo/</link>
       <pubDate>Tue, 12 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/githubpagesxhugo/</guid>
       <description>GitHub Pagesとは GitHubが提供する静的サイトのホスティングサービスです。サーバーを準備する必要がなく、簡単かつ無料でWebページを公開することができるのでとても便利です。
  静的ファイル(HTML,CSS,javascript,画像)を公開できる。(データベースを用いるような動的なページは公開できない) 独自ドメインを割り当てることができる。(別途ドメインの取得が必要) ユーザー/組織ページ、プロジェクトページが作成できる。  制限として、ソースリポジトリの容量は1GB以下、ビルドは1時間あたり10回などがあります。詳しくは公式のヘルプを参考にしてください。
 What is GitHub Pages? - User Docmentation
@@ -55,15 +55,21 @@ https://gohugo.io/getting-started/quick-start/
       <pubDate>Mon, 11 Feb 2019 11:32:33 +0900</pubDate>
       
       <guid>https://s0Hry4.github.io/about/</guid>
-      <description>Web / Photograph / Illust</description>
+      <description>Monzo Sonoda
+Web Developer
+sideline
+Photograph / Illust
+works
+AWS+Wordpressポートフォリオサイト http://nasufo.net/
+AlexaSkill お天気コーデ</description>
     </item>
     
     <item>
       <title>MarkDownマニュアル</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/markdown_manual/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/markdown_manual/markdown_manual/</link>
       <pubDate>Sun, 10 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/markdown_manual/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/markdown_manual/markdown_manual/</guid>
       <description>MarkDown記法 見出し1 見出し2 見出し3 見出し4 見出し5 見出し6 # 見出し1 ## 見出し2 ### 見出し3 #### 見出し4 ##### 見出し5 ###### 見出し6  引用  この文章は引用です
  &amp;gt;この文章は引用です  リンク Wiki:Markdown:WikiのMarkdownのページ
 [Wiki:Markdown](https://ja.wikipedia.org/wiki/Markdown):WikiのMarkdownのページ  強調 ここがemタグで強調されます

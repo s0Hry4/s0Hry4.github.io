@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Commands on 技術とか日々の記録</title>
+    <title>Commands on pulog</title>
     <link>https://s0Hry4.github.io/categories/commands/</link>
-    <description>Recent content in Commands on 技術とか日々の記録</description>
+    <description>Recent content in Commands on pulog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 18 Feb 2019 12:41:12 +0900</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>HUGOよく使うコマンドまとめ</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/hugo_commands/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/hugo_commands/hugo_commands/</link>
       <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/hugo_commands/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/hugo_commands/hugo_commands/</guid>
       <description> 自分がよく利用するコマンド、今後使いそうなコマンドのまとめ。随時更新予定。
 HUGO公式リファレンス：https://gohugo.io/commands/
 1.hugo version HUGOのバージョンを確認するコマンド。

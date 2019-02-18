@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Github on 技術とか日々の記録</title>
+    <title>Github on pulog</title>
     <link>https://s0Hry4.github.io/tags/github/</link>
-    <description>Recent content in Github on 技術とか日々の記録</description>
+    <description>Recent content in Github on pulog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 12 Feb 2019 10:29:20 +0900</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>GitHubPages&#43;HUGOでブログを開設する</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</link>
+      <link>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/githubpagesxhugo/</link>
       <pubDate>Tue, 12 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/githubpagesxhugo/</guid>
       <description>GitHub Pagesとは GitHubが提供する静的サイトのホスティングサービスです。サーバーを準備する必要がなく、簡単かつ無料でWebページを公開することができるのでとても便利です。
  静的ファイル(HTML,CSS,javascript,画像)を公開できる。(データベースを用いるような動的なページは公開できない) 独自ドメインを割り当てることができる。(別途ドメインの取得が必要) ユーザー/組織ページ、プロジェクトページが作成できる。  制限として、ソースリポジトリの容量は1GB以下、ビルドは1時間あたり10回などがあります。詳しくは公式のヘルプを参考にしてください。
 What is GitHub Pages? - User Docmentation
