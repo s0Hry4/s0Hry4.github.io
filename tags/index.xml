@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 技術とか日々の記録</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Tue, 12 Feb 2019 10:29:20 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 18 Feb 2019 12:41:12 +0900</lastBuildDate>
     
 	<atom:link href="https://s0Hry4.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Commands</title>
+      <link>https://s0Hry4.github.io/tags/commands/</link>
+      <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/tags/commands/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Develop</title>
@@ -32,7 +41,7 @@
     <item>
       <title>Hugo</title>
       <link>https://s0Hry4.github.io/tags/hugo/</link>
-      <pubDate>Tue, 12 Feb 2019 10:29:20 +0900</pubDate>
+      <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
       
       <guid>https://s0Hry4.github.io/tags/hugo/</guid>
       <description></description>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://s0Hry4.github.io/posts/2019/02/hugo_commands/</loc>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/</loc>
     <lastmod>2019-02-12T10:29:20+09:00</lastmod>
   </url>
@@ -30,6 +35,18 @@
   </url>
   
   <url>
+    <loc>https://s0Hry4.github.io/tags/commands/</loc>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/categories/commands/</loc>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://s0Hry4.github.io/tags/develop/</loc>
     <lastmod>2019-02-12T10:29:20+09:00</lastmod>
     <priority>0</priority>
@@ -43,7 +60,13 @@
   
   <url>
     <loc>https://s0Hry4.github.io/tags/hugo/</loc>
-    <lastmod>2019-02-12T10:29:20+09:00</lastmod>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/categories/hugo/</loc>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -55,19 +78,19 @@
   
   <url>
     <loc>https://s0Hry4.github.io/posts/</loc>
-    <lastmod>2019-02-12T10:29:20+09:00</lastmod>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://s0Hry4.github.io/tags/</loc>
-    <lastmod>2019-02-12T10:29:20+09:00</lastmod>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://s0Hry4.github.io/</loc>
-    <lastmod>2019-02-12T10:29:20+09:00</lastmod>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
   
