@@ -66,7 +66,7 @@
                     </h1>
                     <h2 class="headline">
                     Mar 3, 2019 17:31
-                    · 170 words
+                    · 162 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -219,19 +219,14 @@ SSLCertificateChainFile /etc/letsencrypt/live/[ドメイン名]/chain.pem
 
 <p>Let&rsquo;s EncryptのSSL証明書は有効期限が3ヶ月となっています。期限が切れるたびにコマンドを実行して発行するのは手間なのでcronで処理を自動化します。</p>
 
-<p>以下コマンドで証明書の再発行（更新）ができるか、Apacheが正常に再起動するか、を確認します。</p>
+<p>cronファイルを作成し以下を記述します。毎日0時にcronが実行されSSL証明書の確認・更新、Apacheの再起動が行われるようになります。</p>
 
-<pre><code>/usr/bin/certbot-auto renew --post-hook &quot;sudo service httpd restart&quot;
+<pre><code>00 00 * * * root /usr/bin/certbot-auto renew --post-hook &quot;service httpd restart&quot;
 </code></pre>
 
 <p><code>renew</code>&hellip;証明書の更新</p>
 
 <p><code>--post-hook</code>&hellip;更新完了後に実行するコマンドを指定できる</p>
-
-<p>確認が取れたらcronファイルを作成します。毎日0時にcronが実行されSSL証明書の確認・更新が行われるようになります。</p>
-
-<pre><code>00 00 * * * root /usr/bin/certbot-auto renew --post-hook &quot;service httpd restart&quot;
-</code></pre>
 
 <p>これで証明書の期限切れを気にすることなくサイトを運営できそうです。</p>
 
