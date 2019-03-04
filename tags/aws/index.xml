@@ -31,7 +31,7 @@ EC2のセキュリティグループを設定する AWSコンソール画面に�
 -n&amp;hellip;対話の入力をスキップ
 --agree-tos&amp;hellip;利用規約に同意する
 --debug&amp;hellip;AWSの場合は記述
-AWSでは&amp;ndash;debugオプションがないとエラーになるようです。以下はエラーになった時の表示。AWSではまだ正式なサポートではなく実験段階のため&amp;ndash;debugオプションをつけてくださいとのこと。
+AWSでは&amp;ndash;debugオプションがないとエラーになるようです。以下はエラーになった時の表示です。AWSではまだ正式なサポートではなく実験段階のため&amp;ndash;debugオプションをつけてくださいとのこと。
 FATAL: Amazon Linux support is very experimental at present.</description>
     </item>
     

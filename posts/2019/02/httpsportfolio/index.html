@@ -66,7 +66,7 @@
                     </h1>
                     <h2 class="headline">
                     Mar 3, 2019 17:31
-                    · 162 words
+                    · 196 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -98,6 +98,7 @@
 <li><a href="#ssl証明書を発行する">SSL証明書を発行する</a></li>
 <li><a href="#mod-sslの設定をする">mod_sslの設定をする</a></li>
 <li><a href="#ssl証明書の更新をcronで自動化する">SSL証明書の更新をcronで自動化する</a></li>
+<li><a href="#参考記事">参考記事</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -169,7 +170,7 @@ certbot-auto certonly --webroot -w [ドキュメントルート] -d [ドメイ�
 
 <p><code>--debug</code>&hellip;AWSの場合は記述</p>
 
-<p>AWSでは&ndash;debugオプションがないとエラーになるようです。以下はエラーになった時の表示。AWSではまだ正式なサポートではなく実験段階のため&ndash;debugオプションをつけてくださいとのこと。</p>
+<p>AWSでは&ndash;debugオプションがないとエラーになるようです。以下はエラーになった時の表示です。AWSではまだ正式なサポートではなく実験段階のため&ndash;debugオプションをつけてくださいとのこと。</p>
 
 <pre><code>FATAL: Amazon Linux support is very experimental at present...
 if you would like to work on improving it, please ensure you have backups
@@ -181,8 +182,11 @@ again with --no-bootstrap.
 <p>証明書が正常に発行できると以下のような表示がされます。発行された証明書のパス、有効期限などが載っています。</p>
 
 <pre><code>IMPORTANT NOTES:
-- Congratulations! 
-...
+- Congratulations! Your certificate and chain have been saved at:
+  /etc/letsencrypt/live/nasufo.net/fullchain.pem
+  Your key file has been saved at:
+  /etc/letsencrypt/live/nasufo.net/privkey.pem
+  Your cert will expire on 2019-05-22. To obtain a new or ...
 </code></pre>
 
 <h2 id="mod-sslの設定をする">mod_sslの設定をする</h2>
@@ -229,6 +233,12 @@ SSLCertificateChainFile /etc/letsencrypt/live/[ドメイン名]/chain.pem
 <p><code>--post-hook</code>&hellip;更新完了後に実行するコマンドを指定できる</p>
 
 <p>これで証明書の期限切れを気にすることなくサイトを運営できそうです。</p>
+
+<h2 id="参考記事">参考記事</h2>
+
+<p><a href="https://qiita.com/sayama0402/items/011644191dfdbde9c646">Let&rsquo;s Encryptを使ってEC2にSSL証明書の発行から自動更新まで行う</a></p>
+
+<p><a href="https://qiita.com/MashMorgan/items/56498f276c54406b1928">AWS EC2にLet&rsquo;s Encryptを導入してみた</a></p>
 
                 </section>
             </article>
