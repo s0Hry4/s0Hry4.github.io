@@ -66,7 +66,7 @@
                     </h1>
                     <h2 class="headline">
                     Feb 12, 2019 10:29
-                    · 364 words
+                    · 365 words
                     · 2 minute read
                       <span class="tags">
                       
@@ -104,10 +104,11 @@
 <ul>
 <li><a href="#1-hugoをインストールする">1.HUGOをインストールする</a></li>
 <li><a href="#2-hugoプロジェクトを作成する">2.HUGOプロジェクトを作成する</a></li>
-<li><a href="#3-テーマを追加する">3.テーマを追加する</a></li>
-<li><a href="#4-記事を追加する">4.記事を追加する</a></li>
-<li><a href="#5-ローカルブラウザで確認する">5.ローカルブラウザで確認する</a></li>
-<li><a href="#6-サイトの設定を記述する">6.サイトの設定を記述する</a></li>
+<li><a href="#3-gitリポジトリ化する">3.gitリポジトリ化する</a></li>
+<li><a href="#4-テーマを追加する">4.テーマを追加する</a></li>
+<li><a href="#5-記事を追加する">5.記事を追加する</a></li>
+<li><a href="#6-ローカルブラウザで確認する">6.ローカルブラウザで確認する</a></li>
+<li><a href="#7-サイトの設定を記述する">7.サイトの設定を記述する</a></li>
 </ul></li>
 <li><a href="#githubにhugoをプッシュする">GitHubにHUGOをプッシュする</a>
 <ul>
@@ -238,14 +239,18 @@
 <pre><code>hugo new site [プロジェクト名]
 </code></pre>
 
-<h3 id="3-テーマを追加する">3.テーマを追加する</h3>
+<h3 id="3-gitリポジトリ化する">3.gitリポジトリ化する</h3>
 
 <pre><code>// プロジェクトに移動
 cd [プロジェクト名]
 
 // プロジェクトをgitリポジトリ化
 git init
-// anankeテーマをsubmoduleとしてリポジトリに取り込む
+</code></pre>
+
+<h3 id="4-テーマを追加する">4.テーマを追加する</h3>
+
+<pre><code>// anankeテーマをsubmoduleとしてリポジトリに取り込む
 git submodule add submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 
 // config.tomlにanankeテーマを使用する宣言を記述
@@ -258,7 +263,7 @@ echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
 
 <p><a href="https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%E3%81%AA%E3%83%84%E3%83%BC%E3%83%AB-%E3%82%B5%E3%83%96%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB">Git - サブモジュール</a></p>
 
-<h3 id="4-記事を追加する">4.記事を追加する</h3>
+<h3 id="5-記事を追加する">5.記事を追加する</h3>
 
 <pre><code>hugo new posts/my-first-post.md
 </code></pre>
@@ -274,7 +279,7 @@ draft: true
 ---
 </code></pre>
 
-<h3 id="5-ローカルブラウザで確認する">5.ローカルブラウザで確認する</h3>
+<h3 id="6-ローカルブラウザで確認する">6.ローカルブラウザで確認する</h3>
 
 <pre><code>hugo server -D
 </code></pre>
@@ -283,7 +288,7 @@ draft: true
 
 <p><code>-D</code>オプションは下書き記事もビルド対象に含めます。デフォルトでは作成した記事は<code>draft: true</code>(下書き状態)になっています。<code>hugo server</code>で実行すると下書き記事が表示されないことを確認できるかと思います。</p>
 
-<h3 id="6-サイトの設定を記述する">6.サイトの設定を記述する</h3>
+<h3 id="7-サイトの設定を記述する">7.サイトの設定を記述する</h3>
 
 <p><code>config.toml</code>ファイルを下記のように編集します。</p>
 
@@ -301,7 +306,7 @@ theme = &quot;ananke&quot;
 
 <h3 id="1-hugoプロジェクトにリモートリポジトリを設定する">1.HUGOプロジェクトにリモートリポジトリを設定する</h3>
 
-<p>HUGOプロジェクトは既に<code>git init</code>でリポジトリ化されているのでリモートの情報を設定します。リポジトリはhugo_sourceを指定します。</p>
+<p>HUGOプロジェクトは「HUGOの準備」の項で<code>git init</code>しリポジトリ化されているのでリモートの情報を設定します。リポジトリはhugo_sourceを指定します。</p>
 
 <pre><code>git remote add origin https://github.com/[ユーザー名/組織名]/hugo_source.git
 </code></pre>

@@ -13,10 +13,10 @@
     
     <item>
       <title>AWS EC2にLet&#39;s Encryptを導入してHTTPS化する</title>
-      <link>https://s0Hry4.github.io/posts/2019/02/httpsportfolio/</link>
+      <link>https://s0Hry4.github.io/posts/2019/03/httpsportfolio/</link>
       <pubDate>Sun, 03 Mar 2019 17:31:05 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/posts/2019/02/httpsportfolio/</guid>
+      <guid>https://s0Hry4.github.io/posts/2019/03/httpsportfolio/</guid>
       <description>概要 EC2で運用しているポートフォリオサイトがこれまでHTTPだったのでセキュリティの改善としてHTTPS化しました。オンライン決済や重要情報を扱ってるサイトではないので必須な対応ではないですが、SEOや信頼性を意識して実施することにしました。
 Let&amp;rsquo;s Encryptとは SSL証明書を発行してくれるサービスです。無料で発行できます。AWSではコマンドベースで発行から設定までできるので小難しい画面操作がなく簡単に導入できました。
 https://letsencrypt.org/
