@@ -18,7 +18,7 @@
       
       <guid>https://s0Hry4.github.io/posts/2019/02/httpsportfolio/</guid>
       <description>概要 EC2で運用しているポートフォリオサイトがこれまでHTTPだったのでセキュリティの改善としてHTTPS化しました。オンライン決済や重要情報を扱ってるサイトではないので必須な対応ではないですが、SEOや信頼性を意識して実施することにしました。
-Let&amp;rsquo;s Encryptとは SSL証明書を発行してくれるサービスは沢山あります。今回は無料で発行できる「Let&amp;rsquo;s Encrypt」を利用します。AWSではコマンドベースで発行から設定までできるので小難しい画面操作がなく簡単に導入できました。
+Let&amp;rsquo;s Encryptとは SSL証明書を発行してくれるサービスです。無料で発行できます。AWSではコマンドベースで発行から設定までできるので小難しい画面操作がなく簡単に導入できました。
 https://letsencrypt.org/
 導入 環境 Amazon Linux AMI release 2018.03
 Apache 2.4.37
