@@ -66,7 +66,7 @@
                     </h1>
                     <h2 class="headline">
                     Jul 9, 2019 10:49
-                    · 35 words
+                    · 58 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -90,10 +90,11 @@
 <ul>
 <li><a href="#概要">概要</a></li>
 <li><a href="#最初に結論">最初に結論</a></li>
+<li><a href="#まえがき">まえがき</a></li>
 <li><a href="#やってみたけどダメだったこと">やってみたけどダメだったこと</a>
 <ul>
 <li><a href="#1-apiキーを制限なしに設定">1.APIキーを制限なしに設定</a></li>
-<li><a href="#2-apiキーの-ウェブサイト制限-でjsfiddleをホワイトリストに追加">2.APIキーの「ウェブサイト制限」でJSFiddleをホワイトリストに追加</a></li>
+<li><a href="#2-apiキーを指定しない">2.APIキーを指定しない</a></li>
 </ul></li>
 <li><a href="#解決策">解決策</a></li>
 </ul>
@@ -106,47 +107,82 @@
 
 <h1 id="概要">概要</h1>
 
-<p>GoogleMapsApiを使ったコードをJSFiddleで共有しようとしたら地図が表示されずハマった。その時の試行錯誤と解決策の記録。</p>
+<p>Google Maps Apiを使ったコードをJSFiddleで共有しようとした時にAPIキーの扱いに迷ったのでその時の試行錯誤と解決策の記録。</p>
 
 <h1 id="最初に結論">最初に結論</h1>
 
 <ol>
-<li>Resourcesに<code>https://maps.googleapis.com/maps/api/js</code>を追加する。</li>
-<li>javascriptの設定のFRAMEWORKS &amp; EXTENSIONSに<code>JQuery x.x.x</code>を選択する。</li>
+<li>Google Clound PlatformでAPIキーのHTTPリファラーに以下のドメインを追加する。</li>
 </ol>
+
+<pre><code>jsfiddle.net
+jshell.net
+*.jshell.net
+</code></pre>
+
+<p>これでAPIキーの利用をJAFiddleからのアクセスのみに制限できる。</p>
+
+<ol>
+<li>APIキーで呼び出すことのできる有効なAPIを指定して制限する</li>
+</ol>
+
+<pre><code>// 使うAPIだけ選択
+Directions API
+Maps JavaScript API
+</code></pre>
+
+<p>もし他人にキーを悪用されたとしても使用できるAPIを制限しておくことで過剰なアクセスを回避できる。</p>
+
+<h1 id="まえがき">まえがき</h1>
+
+<p>元々APIキーを生成した時にローカルからしかアクセスできないようHTTPリファラーの制限をかけていた。</p>
+
+<p>従って、JSFiddleからコードを実行した時に地図がエラーになって表示できなかった。</p>
+
+<p>そこでHTTPリファラーにJSFiddleのドメインを追加してみたもののエラーは変わらず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。</p>
 
 <h1 id="やってみたけどダメだったこと">やってみたけどダメだったこと</h1>
 
 <h2 id="1-apiキーを制限なしに設定">1.APIキーを制限なしに設定</h2>
 
-<p>HTMLソースの中でGoogle Maps Apiを読み込む。ドキュメントにAPIキーが必要と書いてあるので記述。</p>
+<p>Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。APIキーを指定して読み込む。</p>
 
-<pre><code>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
+<pre><code>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;
 </code></pre>
 
-<p>Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。</p>
+<p>当たり前だが地図も表示されDirections APIを使ったコードも動いた。<strong>が、これでは他人にキーが悪用されてしまう危険がある</strong>ので却下。</p>
 
-<p>これで地図を表示することはできた。<strong>が、これでは他人にキーが悪用されてしまう危険がある</strong>のでこの案は却下。</p>
+<h2 id="2-apiキーを指定しない">2.APIキーを指定しない</h2>
 
-<h2 id="2-apiキーの-ウェブサイト制限-でjsfiddleをホワイトリストに追加">2.APIキーの「ウェブサイト制限」でJSFiddleをホワイトリストに追加</h2>
+<p>調べたら似たような悩みを持っている人の質問が見つかった。</p>
 
-<p>キーの悪用対策として一部のURLからのみ利用できるようにしようと考えた。</p>
+<p><a href="https://stackoverflow.com/questions/54805160/google-maps-api-key-privacy">https://stackoverflow.com/questions/54805160/google-maps-api-key-privacy</a></p>
 
-<p>ウェブサイトのホワイトリストに<code>*.jsfiddle.net/[JSFiddleユーザーID]/*</code>を追加。</p>
+<p><strong>JSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Apiを追加してFRAMEWORKS &amp; EXTENSIONSにJQueryを追加する</strong>と書いてあるので設定してみる。</p>
 
-<p>(※ワイルドカードで指定して自分のプロジェクト配下全て有効にする思惑)</p>
+<ol>
+<li>Resourcesに<code>https://maps.googleapis.com/maps/api/js</code>を追加</li>
+<li>javascriptの設定のFRAMEWORKS &amp; EXTENSIONSに<code>JQuery x.x.x</code>を選択</li>
+</ol>
 
-<p>この設定でいけると思ったら、<strong>地図がエラーになり表示されなかった</strong>。詳しくは分からないが<strong>JSFiddleの内部的に外部リソースの読み込み方が違うのかな</strong>と。あと、これでうまくいっても<strong>APIキーは他人に見られるのであまりよろしくない</strong>ということで却下。</p>
+<p>地図は表示された。ピンを立てるプログラムも動いた。しかし、<strong>Directions APIを使ったコードが動かなかった</strong>ので他のやり方を探す。</p>
 
 <h1 id="解決策">解決策</h1>
 
-<p>色々試してダメだったので調べてみたら自分と似たようなことで悩んでいる人を発見。</p>
+<p>やっぱりHTTPリファラーでいけるんじゃないかと思って調べていたら以下のページを発見。</p>
 
 <p><a href="https://stackoverflow.com/questions/27956287/how-to-properly-load-google-map-api-in-jsfiddle">https://stackoverflow.com/questions/27956287/how-to-properly-load-google-map-api-in-jsfiddle</a></p>
 
-<p>これを見る限り<strong>JSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Apiを追加してFRAMEWORKS &amp; EXTENSIONSにJQueryを追加する</strong>と書いてあります。</p>
+<p>APIキーの「ウェブサイト制限」で以下のドメインをHTTPリファラーに追加する。</p>
 
-<p>HTML内のGoogle Maps Apiの読み込みの記述を削除しこの通りに設定し直したら地図が表示されました。APIキーも他人にバレないので安心。</p>
+<pre><code>jsfiddle.net
+jshell.net
+*.jshell.net
+</code></pre>
+
+<p>地図も表示されコードも全部動いて解決。他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。</p>
+
+<p>本当は自分のプロジェクトのみにしたくて<code>jsfiddle.net/[ユーザーID]/*</code>とかで登録してみたけどなんか上手くいかなかった。要調査。</p>
 
                 </section>
             </article>
