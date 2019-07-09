@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcp on Mason Sonoda</title>
+    <link>https://s0Hry4.github.io/categories/gcp/</link>
+    <description>Recent content in Gcp on Mason Sonoda</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Tue, 09 Jul 2019 10:49:54 +0900</lastBuildDate>
+    
+	<atom:link href="https://s0Hry4.github.io/categories/gcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JSFiddleでGoogle Map Apiを使う時はAPIキー不要でResurcesで読み込む</title>
+      <link>https://s0Hry4.github.io/posts/2019/07/jsfiddlegma/</link>
+      <pubDate>Tue, 09 Jul 2019 10:49:54 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/posts/2019/07/jsfiddlegma/</guid>
+      <description>概要 GoogleMapsApiを使ったコードをJSFiddleで共有しようとしたら地図が表示されずハマった。その時の試行錯誤と解決策の記録。
+最初に結論  Resourcesにhttps://maps.googleapis.com/maps/api/jsを追加する。 javascriptの設定のFRAMEWORKS &amp;amp; EXTENSIONSにJQuery x.x.xを選択する。  やってみたけどダメだったこと 1.APIキーを制限なしに設定 HTMLソースの中でGoogle Maps Apiを読み込む。ドキュメントにAPIキーが必要と書いてあるので記述。
+&amp;lt;script src=&amp;quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。
+これで地図を表示することはできた。が、これでは他人にキーが悪用されてしまう危険があるのでこの案は却下。
+2.APIキーの「ウェブサイト制限」でJSFiddleをホワイトリストに追加 キーの悪用対策として一部のURLからのみ利用できるようにしようと考えた。
+ウェブサイトのホワイトリストに*.jsfiddle.net/[JSFiddleユーザーID]/*を追加。
+(※ワイルドカードで指定して自分のプロジェクト配下全て有効にする思惑)
+この設定でいけると思ったら、地図がエラーになり表示されなかった。詳しくは分からないがJSFiddleの内部的に外部リソースの読み込み方が違うのかなと。あと、これでうまくいってもAPIキーは他人に見られるのであまりよろしくないということで却下。
+解決策 色々試してダメだったので調べてみたら自分と似たようなことで悩んでいる人を発見。
+https://stackoverflow.com/questions/27956287/how-to-properly-load-google-map-api-in-jsfiddle
+これを見る限りJSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Apiを追加してFRAMEWORKS &amp;amp; EXTENSIONSにJQueryを追加すると書いてあります。
+HTML内のGoogle Maps Apiの読み込みの記述を削除しこの通りに設定し直したら地図が表示されました。APIキーも他人にバレないので安心。</description>
+    </item>
+    
+  </channel>
+</rss>
