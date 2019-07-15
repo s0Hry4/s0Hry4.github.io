@@ -22,8 +22,8 @@
  APIキーで呼び出すことのできる有効なAPIを指定して制限する  // 使うAPIだけ選択 Directions API Maps JavaScript API  もし他人にキーを悪用されたとしても使用できるAPIを制限しておくことで過剰なアクセスを回避できる。
 まえがき 元々APIキーを生成した時にローカルからしかアクセスできないようHTTPリファラーの制限をかけていた。
 JSFiddleで共有しようと思い、HTTPリファラーにJSFiddleのドメインを追加してみたものの地図がエラーで表示されず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。
-やってみたけどダメだったこと 1.APIキーの制限を「なし」に設定 Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。
-&amp;lt;script src=&amp;quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;quot;  エラーは解消され地図が表示された。Directions APIを使ったコードも動いた。しかし、これでは他人にキーが悪用されてしまう危険があるので他の方法を考える。
+やってみたけどダメだったこと 1.APIキーの制限を「なし」に設定 Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定する。
+エラーは解消され地図が表示された。Directions APIを使ったコードも動いた。しかし、他人にキーが悪用されてしまう危険があるので他の方法を考える。
 2.APIキーを指定しない 調べたら似たような悩みを持っている人の質問が見つかった。
 https://stackoverflow.com/questions/54805160/google-maps-api-key-privacy
 JSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Apiを追加してFRAMEWORKS &amp;amp; EXTENSIONSにJQueryを追加すると書いてあるので設定してみる。
