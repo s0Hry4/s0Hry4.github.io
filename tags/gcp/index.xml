@@ -21,8 +21,7 @@
 最初に結論  Google Clound PlatformでAPIキーのHTTPリファラーに以下のドメインを追加する。  jsfiddle.net jshell.net *.jshell.net  これでAPIキーの利用をJAFiddleからのアクセスのみに制限できる。
  APIキーで呼び出すことのできる有効なAPIを指定して制限する  // 使うAPIだけ選択 Directions API Maps JavaScript API  もし他人にキーを悪用されたとしても使用できるAPIを制限しておくことで過剰なアクセスを回避できる。
 まえがき 元々APIキーを生成した時にローカルからしかアクセスできないようHTTPリファラーの制限をかけていた。
-従って、JSFiddleからコードを実行した時に地図がエラーになって表示できなかった。
-そこでHTTPリファラーにJSFiddleのドメインを追加してみたもののエラーは変わらず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。
+JSFiddleで共有しようと思い、HTTPリファラーにJSFiddleのドメインを追加してみたものの地図がエラーで表示されず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。
 やってみたけどダメだったこと 1.APIキーを制限なしに設定 Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。APIキーを指定して読み込む。
 &amp;lt;script src=&amp;quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;quot;  当たり前だが地図も表示されDirections APIを使ったコードも動いた。が、これでは他人にキーが悪用されてしまう危険があるので却下。
 2.APIキーを指定しない 調べたら似たような悩みを持っている人の質問が見つかった。
