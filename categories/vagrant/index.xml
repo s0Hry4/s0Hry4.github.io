@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vagrant on Monzo Sonoda</title>
+    <link>https://s0Hry4.github.io/categories/vagrant/</link>
+    <description>Recent content in Vagrant on Monzo Sonoda</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 08 Jul 2019 11:44:05 +0900</lastBuildDate>
+    
+	<atom:link href="https://s0Hry4.github.io/categories/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))</title>
+      <link>https://s0Hry4.github.io/posts/2019/07/vagrant0x80004005/</link>
+      <pubDate>Mon, 08 Jul 2019 11:44:05 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/posts/2019/07/vagrant0x80004005/</guid>
+      <description>現象 vagrant upしたら以下のようなエラーが表示され起動できなくなりました。 特に何かを変更した覚えもない。
+There was an error while executing `VBoxManage`, a CLI used by Vagrant for controlling VirtualBox. The command and stderr is shown below. Command: [&amp;quot;startvm&amp;quot;, &amp;quot;07dcb84a-1c56-4422-8abc-4a5c4077d7b1&amp;quot;, &amp;quot;--type&amp;quot;, &amp;quot;gui&amp;quot;] Stderr: VBoxManage: error: The virtual machine &#39;xxxxxx_xxxxx_xxxxxxxxxxxxxx_xxxxx&#39; has terminated unexpectedly during startup because of signal 6 VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine  対応 エラーコード検索して出てきたQiita記事。 https://qiita.com/k-yamada-github/items/22372515bea03d14cd30
+VirtualBoxをアップデート とりあえずVirtualBoxのアップデートが滞っていたので最新版をインストール。 https://www.virtualbox.org/
+再度vagrant upしてみると
+The provider &#39;virtualbox&#39; that was requested to back the machine &#39;default&#39; is reporting that it isn&#39;t usable on this system.</description>
+    </item>
+    
+  </channel>
+</rss>

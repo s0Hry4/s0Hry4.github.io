@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="AWS EC2にLet&#39;s Encryptを導入してHTTPS化する"/>
+  <meta name="twitter:description" content="AWS EC2で公開しているポートフォリオサイトがHTTPのままだったのでセキュリティ改善としてHTTPS化しました。"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@"/>
+  
+
+
+
+		
+		
+		<meta name="description" content="技術とか思考の記録">
+		<meta name="generator" content="Hugo 0.54.0" />
+		<title>AWS EC2にLet&#39;s Encryptを導入してHTTPS化する &middot; Monzo Sonoda</title>
+		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://s0Hry4.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://s0Hry4.github.io/posts'>Archive</a>
+	<a href='https://s0Hry4.github.io/tags'>Tags</a>
+	<a href='https://s0Hry4.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        AWS EC2にLet&#39;s Encryptを導入してHTTPS化する
+                    </h1>
+                    <h2 class="headline">
+                    Mar 3, 2019 17:31
+                    · 195 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://s0Hry4.github.io/tags/ssl">SSL</a>
+                          
+                              <a href="https://s0Hry4.github.io/tags/aws">AWS</a>
+                          
+                              <a href="https://s0Hry4.github.io/tags/ec2">EC2</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#概要">概要</a></li>
+<li><a href="#let-s-encryptとは">Let&rsquo;s Encryptとは</a></li>
+<li><a href="#導入">導入</a>
+<ul>
+<li><a href="#環境">環境</a></li>
+<li><a href="#ec2のセキュリティグループを設定する">EC2のセキュリティグループを設定する</a></li>
+<li><a href="#certbotをインストールする">certbotをインストールする</a></li>
+<li><a href="#ssl証明書を発行する">SSL証明書を発行する</a></li>
+<li><a href="#mod-sslの設定をする">mod_sslの設定をする</a></li>
+<li><a href="#ssl証明書の更新をcronで自動化する">SSL証明書の更新をcronで自動化する</a></li>
+</ul></li>
+<li><a href="#参考記事">参考記事</a></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
+
+<h1 id="概要">概要</h1>
+
+<p>EC2で運用しているポートフォリオサイトがこれまでHTTPだったのでセキュリティの改善としてHTTPS化しました。オンライン決済や重要情報を扱ってるサイトではないので必須な対応ではないですが、SEOや信頼性を意識して実施することにしました。</p>
+
+<h1 id="let-s-encryptとは">Let&rsquo;s Encryptとは</h1>
+
+<p>SSL証明書を発行してくれるサービスです。無料で発行できます。AWSではコマンドベースで発行から設定までできるので小難しい画面操作がなく簡単に導入できました。</p>
+
+<p><a href="https://letsencrypt.org/">https://letsencrypt.org/</a></p>
+
+<h1 id="導入">導入</h1>
+
+<h2 id="環境">環境</h2>
+
+<p>Amazon Linux AMI release 2018.03</p>
+
+<p>Apache 2.4.37</p>
+
+<h2 id="ec2のセキュリティグループを設定する">EC2のセキュリティグループを設定する</h2>
+
+<p>AWSコンソール画面にアクセスしEC2の設定を行います。セキュリティグループのインバウンド設定でHTTP(80)に加えてHTTPS(443)も許可(0.0.0.0/0)します。</p>
+
+<figure class="center">
+    <img src="awssecuritygroup.png"/> 
+</figure>
+
+
+<h2 id="certbotをインストールする">certbotをインストールする</h2>
+
+<p>certbotとはLet’s Encryptの自動化サービスです。
+EC2にSSHログインし以下のコマンドを実行してインストールします。</p>
+
+<pre><code>// sudo権限
+sudo su
+
+// culrでcertbotをインストール
+curl https://dl.eff.org/certbot-auto -o /usr/bin/certbot-auto
+
+// パーミションを700に変更
+chmod 700 /usr/bin/certbot-auto
+</code></pre>
+
+<h2 id="ssl証明書を発行する">SSL証明書を発行する</h2>
+
+<p>以下のコマンドを実行して証明書を発行します。各パラメータは自身の環境に合わせて変更します。</p>
+
+<pre><code>// 証明書生成コマンド
+certbot-auto certonly --webroot -w [ドキュメントルート] -d [ドメイン名] --email [メールアドレス] -n --agree-tos --debug
+</code></pre>
+
+<p><code>-w</code>&hellip;ドキュメントルート</p>
+
+<p><code>-d</code>&hellip;対象ドメイン</p>
+
+<p><code>--email</code>&hellip;連絡用メールアドレス</p>
+
+<p><code>-n</code>&hellip;対話の入力をスキップ</p>
+
+<p><code>--agree-tos</code>&hellip;利用規約に同意する</p>
+
+<p><code>--debug</code>&hellip;AWSの場合は記述</p>
+
+<p>AWSでは&ndash;debugオプションがないとエラーになるようです。以下はエラーになった時の表示です。AWSではまだ正式なサポートではなく実験段階のため&ndash;debugオプションをつけてくださいとのこと。</p>
+
+<pre><code>FATAL: Amazon Linux support is very experimental at present...
+if you would like to work on improving it, please ensure you have backups
+and then run this script again with the --debug flag!
+Alternatively, you can install OS dependencies yourself and run this script
+again with --no-bootstrap.
+</code></pre>
+
+<p>証明書が正常に発行できると以下のような表示がされます。発行された証明書のパス、有効期限などが載っています。</p>
+
+<pre><code>IMPORTANT NOTES:
+- Congratulations! Your certificate and chain have been saved at:
+  /etc/letsencrypt/live/nasufo.net/fullchain.pem
+  Your key file has been saved at:
+  /etc/letsencrypt/live/nasufo.net/privkey.pem
+  Your cert will expire on 2019-05-22. To obtain a new or ...
+</code></pre>
+
+<h2 id="mod-sslの設定をする">mod_sslの設定をする</h2>
+
+<p>ApacheをSSL対応にするために必要なモジュールです。 インストールして証明書の設定を記述します。</p>
+
+<pre><code>// mod_sslのインストール
+yum install mod24_ssl
+
+// ssl.confを編集する
+vi /etc/httpd/conf.d/ssl.conf
+</code></pre>
+
+<p>/etc/httpd/conf.d/ssl.confの内容を一部編集します。</p>
+
+<pre><code>// cert.pemのファイルパスを変更
+SSLCertificateFile /etc/letsencrypt/live/[ドメイン名]/cert.pem
+
+// privkey.pemのファイルパスを変更
+SSLCertificateKeyFile /etc/letsencrypt/live/[ドメイン名]/privkey.pem
+
+// chain.pemファイルのパスを変更、コメントアウトを外す
+SSLCertificateChainFile /etc/letsencrypt/live/[ドメイン名]/chain.pem
+</code></pre>
+
+<p>Apacheを再起動する</p>
+
+<pre><code>service httpd restart 
+</code></pre>
+
+<p>以上の手順でHTTPS化の作業は完了です。https://[ドメイン名]でサイトが表示できているかと思います。</p>
+
+<h2 id="ssl証明書の更新をcronで自動化する">SSL証明書の更新をcronで自動化する</h2>
+
+<p>Let&rsquo;s EncryptのSSL証明書は有効期限が3ヶ月となっています。期限が切れるたびにコマンドを実行して発行するのは手間なのでcronで処理を自動化します。</p>
+
+<p>cronファイルを作成し以下を記述します。毎日0時にcronが実行されSSL証明書の確認・更新、Apacheの再起動が行われるようになります。</p>
+
+<pre><code>00 00 * * * root /usr/bin/certbot-auto renew --post-hook &quot;service httpd restart&quot;
+</code></pre>
+
+<p><code>renew</code>&hellip;証明書の更新</p>
+
+<p><code>--post-hook</code>&hellip;更新完了後に実行するコマンドを指定できる</p>
+
+<p>これで証明書の期限切れを気にすることなくサイトを運営できそうです。</p>
+
+<h1 id="参考記事">参考記事</h1>
+
+<p><a href="https://qiita.com/sayama0402/items/011644191dfdbde9c646">Let&rsquo;s Encryptを使ってEC2にSSL証明書の発行から自動更新まで行う</a></p>
+
+<p><a href="https://qiita.com/MashMorgan/items/56498f276c54406b1928">AWS EC2にLet&rsquo;s Encryptを導入してみた</a></p>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/s0Hry4">
+        roundedgithub
+    </a>
+    
+    <a class="symbol" href="https://www.instagram.com/nasubi_n/">
+        roundedinstagram
+    </a>
+    
+    <a class="symbol" href="https://paprikatengoku.tumblr.com/">
+        roundedtumblr
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/cRn4s">
+        roundedtwitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        &copy; 2019 MonzoSonoda
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://s0Hry4.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://s0Hry4.github.io/js/main.js"></script>
+<script src="https://s0Hry4.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>
