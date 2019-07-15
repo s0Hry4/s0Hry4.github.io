@@ -93,7 +93,7 @@
 <li><a href="#まえがき">まえがき</a></li>
 <li><a href="#やってみたけどダメだったこと">やってみたけどダメだったこと</a>
 <ul>
-<li><a href="#1-apiキーを制限なしに設定">1.APIキーを制限なしに設定</a></li>
+<li><a href="#1-apiキーの制限を-なし-に設定">1.APIキーの制限を「なし」に設定</a></li>
 <li><a href="#2-apiキーを指定しない">2.APIキーを指定しない</a></li>
 </ul></li>
 <li><a href="#解決策">解決策</a></li>
@@ -141,14 +141,14 @@ Maps JavaScript API
 
 <h1 id="やってみたけどダメだったこと">やってみたけどダメだったこと</h1>
 
-<h2 id="1-apiキーを制限なしに設定">1.APIキーを制限なしに設定</h2>
+<h2 id="1-apiキーの制限を-なし-に設定">1.APIキーの制限を「なし」に設定</h2>
 
-<p>Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。APIキーを指定して読み込む。</p>
+<p>Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。</p>
 
 <pre><code>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;
 </code></pre>
 
-<p>当たり前だが地図も表示されDirections APIを使ったコードも動いた。<strong>が、これでは他人にキーが悪用されてしまう危険がある</strong>ので却下。</p>
+<p>エラーは解消され地図が表示された。Directions APIを使ったコードも動いた。<strong>しかし、これでは他人にキーが悪用されてしまう危険がある</strong>ので他の方法を考える。</p>
 
 <h2 id="2-apiキーを指定しない">2.APIキーを指定しない</h2>
 
@@ -163,7 +163,7 @@ Maps JavaScript API
 <li>javascriptの設定のFRAMEWORKS &amp; EXTENSIONSに<code>JQuery x.x.x</code>を選択</li>
 </ol>
 
-<p>地図は表示された。ピンを立てるプログラムも動いた。しかし、<strong>Directions APIを使ったコードが動かなかった</strong>ので他のやり方を探す。</p>
+<p>地図は表示された。ピンを立てるコードも動いた。しかし、<strong>Directions APIを使ったコードが動かなかった</strong>のでこの方法もダメだった。</p>
 
 <h1 id="解決策">解決策</h1>
 
@@ -178,9 +178,9 @@ jshell.net
 *.jshell.net
 </code></pre>
 
-<p>地図も表示されコードも全部動いて解決。他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。</p>
+<p>地図も表示されコードも全部動いて解決。懸念点として、他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。</p>
 
-<p>本当は自分のプロジェクトのみにしたくて<code>jsfiddle.net/[ユーザーID]/*</code>とかで登録してみたけどなんか上手くいかなかった。要調査。</p>
+<p>本当は自分のプロジェクトのみにしたくて<code>jsfiddle.net/[ユーザーID]/*</code>とかで登録してみたけどなぜか上手くいかなかった。</p>
 
                 </section>
             </article>
