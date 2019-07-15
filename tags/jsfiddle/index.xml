@@ -12,7 +12,11 @@
     
     
     <item>
+<<<<<<< HEAD
       <title>JSFiddleでGoogle Map Apiを使う</title>
+=======
+      <title>JSFiddleでGoogle Map Apiを使う時はAPIキー不要でResurcesで読み込む</title>
+>>>>>>> c6376bc98d1b8df0bb1c2e92ba585f7618b2d91f
       <link>https://s0Hry4.github.io/posts/2019/07/jsfiddlegma/</link>
       <pubDate>Tue, 09 Jul 2019 10:49:54 +0900</pubDate>
       
