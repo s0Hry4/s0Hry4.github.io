@@ -13,8 +13,8 @@
     
   
   
-  <meta name="twitter:title" content="JSFiddleでGoogle Maps Apiを使う"/>
-  <meta name="twitter:description" content="JSFiddleでGoogleMapsApiを使いたくて調べた時のメモ"/>
+  <meta name="twitter:title" content="JSFiddleでGoogle Map Apiを使う時はAPIキー不要でResurcesで読み込む"/>
+  <meta name="twitter:description" content="JSFiddleでGoogleMapApiを使いたくて調べた時のメモ"/>
   
   
   
@@ -28,7 +28,7 @@
 		
 		<meta name="description" content="技術とか思考の記録">
 		<meta name="generator" content="Hugo 0.54.0" />
-		<title>JSFiddleでGoogle Maps Apiを使う &middot; Monzo Sonoda</title>
+		<title>JSFiddleでGoogle Map Apiを使う時はAPIキー不要でResurcesで読み込む &middot; Monzo Sonoda</title>
 		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
 		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
 		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
@@ -62,11 +62,11 @@
             <article>
                 <header>
                     <h1>
-                        JSFiddleでGoogle Maps Apiを使う
+                        JSFiddleでGoogle Map Apiを使う時はAPIキー不要でResurcesで読み込む
                     </h1>
                     <h2 class="headline">
                     Jul 9, 2019 10:49
-                    · 55 words
+                    · 58 words
                     · 1 minute read
                       <span class="tags">
                       
@@ -93,7 +93,7 @@
 <li><a href="#まえがき">まえがき</a></li>
 <li><a href="#やってみたけどダメだったこと">やってみたけどダメだったこと</a>
 <ul>
-<li><a href="#1-apiキーの制限を-なし-に設定">1.APIキーの制限を「なし」に設定</a></li>
+<li><a href="#1-apiキーを制限なしに設定">1.APIキーを制限なしに設定</a></li>
 <li><a href="#2-apiキーを指定しない">2.APIキーを指定しない</a></li>
 </ul></li>
 <li><a href="#解決策">解決策</a></li>
@@ -137,15 +137,20 @@ Maps JavaScript API
 
 <p>元々APIキーを生成した時にローカルからしかアクセスできないようHTTPリファラーの制限をかけていた。</p>
 
-<p>JSFiddleで共有しようと思い、HTTPリファラーにJSFiddleのドメインを追加してみたものの地図がエラーで表示されず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。</p>
+<p>従って、JSFiddleからコードを実行した時に地図がエラーになって表示できなかった。</p>
+
+<p>そこでHTTPリファラーにJSFiddleのドメインを追加してみたもののエラーは変わらず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。</p>
 
 <h1 id="やってみたけどダメだったこと">やってみたけどダメだったこと</h1>
 
-<h2 id="1-apiキーの制限を-なし-に設定">1.APIキーの制限を「なし」に設定</h2>
+<h2 id="1-apiキーを制限なしに設定">1.APIキーを制限なしに設定</h2>
 
-<p>Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定する。</p>
+<p>Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定。APIキーを指定して読み込む。</p>
 
-<p>エラーは解消され地図が表示された。Directions APIを使ったコードも動いた。<strong>しかし、他人にキーが悪用されてしまう危険がある</strong>ので他の方法を考える。</p>
+<pre><code>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;
+</code></pre>
+
+<p>当たり前だが地図も表示されDirections APIを使ったコードも動いた。<strong>が、これでは他人にキーが悪用されてしまう危険がある</strong>ので却下。</p>
 
 <h2 id="2-apiキーを指定しない">2.APIキーを指定しない</h2>
 
@@ -160,7 +165,7 @@ Maps JavaScript API
 <li>javascriptの設定のFRAMEWORKS &amp; EXTENSIONSに<code>JQuery x.x.x</code>を選択</li>
 </ol>
 
-<p>地図は表示された。ピンを立てるコードも動いた。しかし、<strong>Directions APIを使ったコードが動かなかった</strong>のでこの方法もダメだった。</p>
+<p>地図は表示された。ピンを立てるプログラムも動いた。しかし、<strong>Directions APIを使ったコードが動かなかった</strong>ので他のやり方を探す。</p>
 
 <h1 id="解決策">解決策</h1>
 
@@ -175,9 +180,9 @@ jshell.net
 *.jshell.net
 </code></pre>
 
-<p>地図も表示されコードも全部動いて解決。懸念点として、他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。</p>
+<p>地図も表示されコードも全部動いて解決。他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。</p>
 
-<p>本当は自分のプロジェクトのみにしたくて<code>jsfiddle.net/[ユーザーID]/*</code>とかで登録してみたけどなぜか上手くいかなかった。</p>
+<p>本当は自分のプロジェクトのみにしたくて<code>jsfiddle.net/[ユーザーID]/*</code>とかで登録してみたけどなんか上手くいかなかった。要調査。</p>
 
                 </section>
             </article>
