@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Monzo Sonoda</title>
+    <title>Monzo Sonoda</title>
     <link>https://s0Hry4.github.io/categories/</link>
-    <description>Recent content in Categories on Monzo Sonoda</description>
+    <description>Recent content on Monzo Sonoda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 12 Feb 2019 10:29:20 +0900</lastBuildDate>
@@ -12,102 +12,39 @@
     
     
     <item>
-      <title></title>
-      <link>https://s0Hry4.github.io/categories/</link>
+      <title>GitHubPages&#43;HUGOでブログを開設する</title>
+      <link>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/githubpagesxhugo/</link>
       <pubDate>Tue, 12 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/categories/</guid>
-      <description></description>
+      <guid>https://s0Hry4.github.io/posts/2019/02/githubpagesxhugo/githubpagesxhugo/</guid>
+      <description>GitHub Pagesとは GitHubが提供する静的サイトのホスティングサービスです。サーバーを準備する必要がなく、簡単かつ無料でWebページを公開することができるのでとても便利です。
+ 静的ファイル(HTML,CSS,javascript,画像)を公開できる。(データベースを用いるような動的なページは公開できない) 独自ドメインを割り当てることができる。(別途ドメインの取得が必要) ユーザー/組織ページ、プロジェクトページが作成できる。  制限として、ソースリポジトリの容量は1GB以下、ビルドは1時間あたり10回などがあります。詳しくは公式のヘルプを参考にしてください。
+What is GitHub Pages? - User Docmentation
+HUGOとは  HUGOは、静的なhtmlを生成する事ができる静的ページジェネレータです。HUGOの場合、ローカル環境ではHUGOの動的機能を使って動的にサイトを開発し、成果物の出力時に動的要素を全て静的要素（html,css,js,img等）として出力します。 生成された成果物にはサーバサイドの処理を含まないため、サイトの表示速度は高速になり、サーバサイドの処理が無い分セキュリティリスクが減ります。
+ 参考:HUGOとは？|Let&amp;rsquo;s study HUGO!!
+ ページに必要なHTMLやCSSなどの静的ファイルを作成してくれるジェネレータ MarkDown記法で記事を書いてビルドすると必要なファイルが生成される テーマを利用すれば簡単にデザインを変更できる サーバーサイドの処理がなく高速(記事数が増えてきたら恩恵を感じるかも)  自分でテンプレートを編集する場合はGo Templatesの知識が必要になりますが、基本的にHTMLやjavascript、コマンド実行の経験がある方なら苦労せず導入できます。静的ジェネレータはHUGO以外にもjekyllやGatsbyなど色々あります。高速という点でHUGOを選んでみました。
+導入 GitHubの準備 GitHub Pagesにはユーザー/組織ページとプロジェクトページの2種類があります。ここではユーザー/組織ページの手順を紹介します。
+    URL 備考     User/Organization https://[ユーザー名/組織名].github.io/ ユーザー、組織のページ   Project https://[ユーザ名/組織名].github.io/[リポジトリ名]/ プロジェクトのページ    1.GitHubリポジトリを作成する GitHubでリポジトリを作成します。HUGO全体のソースを管理するリポジトリと、公開用ファイルを管理するリポジトリの2つを作成します。
+[ユーザー名/組織名].github.io(公開ファイル用) 公開ファイル(HUGOで生成されたpublic配下)を管理するリポジトリ。ここにある静的ファイルがWebページとして公開されます。[ユーザー名/組織名].github.ioという名前で作成する必要があります。
+hugo_source(HUGO全体のソース用) HUGO全体のソースを管理するリポジトリ。名前は任意でOK。Webページ公開において必須ではないですがブログの記事やテンプレート、設定の変更を管理したいので作成します。
+HUGOの準備 HUGO公式ページに載っているQuick Startの手順を元に進めていきます。
+https://gohugo.io/getting-started/quick-start/
+※Homebrewがインストールされていない場合はインストールしてください。 https://brew.sh/index_ja</description>
     </item>
     
     <item>
-      <title>Aws</title>
-      <link>https://s0Hry4.github.io/categories/aws/</link>
-      <pubDate>Sun, 03 Mar 2019 17:31:05 +0900</pubDate>
+      <title>MarkDownマニュアル</title>
+      <link>https://s0Hry4.github.io/posts/2019/02/markdown_manual/markdown_manual/</link>
+      <pubDate>Sun, 10 Feb 2019 10:29:20 +0900</pubDate>
       
-      <guid>https://s0Hry4.github.io/categories/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Commands</title>
-      <link>https://s0Hry4.github.io/categories/commands/</link>
-      <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/commands/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ec2</title>
-      <link>https://s0Hry4.github.io/categories/ec2/</link>
-      <pubDate>Sun, 03 Mar 2019 17:31:05 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/ec2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gcp</title>
-      <link>https://s0Hry4.github.io/categories/gcp/</link>
-      <pubDate>Tue, 09 Jul 2019 10:49:54 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/gcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Googlemapsapi</title>
-      <link>https://s0Hry4.github.io/categories/googlemapsapi/</link>
-      <pubDate>Tue, 09 Jul 2019 10:49:54 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/googlemapsapi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://s0Hry4.github.io/categories/hugo/</link>
-      <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jsfiddle</title>
-      <link>https://s0Hry4.github.io/categories/jsfiddle/</link>
-      <pubDate>Tue, 09 Jul 2019 10:49:54 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/jsfiddle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ssl</title>
-      <link>https://s0Hry4.github.io/categories/ssl/</link>
-      <pubDate>Sun, 03 Mar 2019 17:31:05 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/ssl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vagrant</title>
-      <link>https://s0Hry4.github.io/categories/vagrant/</link>
-      <pubDate>Mon, 08 Jul 2019 11:44:05 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/vagrant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Virtualbox</title>
-      <link>https://s0Hry4.github.io/categories/virtualbox/</link>
-      <pubDate>Mon, 08 Jul 2019 11:44:05 +0900</pubDate>
-      
-      <guid>https://s0Hry4.github.io/categories/virtualbox/</guid>
-      <description></description>
+      <guid>https://s0Hry4.github.io/posts/2019/02/markdown_manual/markdown_manual/</guid>
+      <description>MarkDown記法 見出し1 見出し2 見出し3 見出し4 見出し5 見出し6 # 見出し1 ## 見出し2 ### 見出し3 #### 見出し4 ##### 見出し5 ###### 見出し6  引用  この文章は引用です
+ &amp;gt;この文章は引用です  リンク Wiki:Markdown:WikiのMarkdownのページ
+[Wiki:Markdown](https://ja.wikipedia.org/wiki/Markdown):WikiのMarkdownのページ  強調 ここがemタグで強調されます
+ここがemタグで強調されます
+ここがstrongタグで強調されます
+ここがstrongタグで強調されます
+*ここがemタグで強調されます* _ここがemタグで強調されます_ **ここがstrongタグで強調されます** __ここがstrongタグで強調されます__  リスト  フシギダネ ゼニガメ ヒトカゲ  - フシギダネ - ゼニガメ - ヒトカゲ   フシギソウ カメール リザード  1. フシギソウ 2. カメール 3. リザード  テーブル    A列 B列 C列 D列 E列     あ い う え お   か き く け こ   さ し す せ そ    | A列 | B列 | C列 |D列|E列| |-----|:---:|-----|--:|---| | あ | い | う |え |お | | か | き | く |け |こ | | さ | し | す |せ |そ |  プログラムを記述する場合 num = 0 while num &amp;lt; 2 do print(&amp;quot;num = &amp;quot;, num) end print(&amp;quot;End&amp;quot;)  ``` num = 0 while num &amp;lt; 2 do print(&amp;quot;num = &amp;quot;, num) end print(&amp;quot;End&amp;quot;) ```  画像 !</description>
     </item>
     
   </channel>
