@@ -1,112 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 
-			
-  
-    <meta name="twitter:card" content="summary"/>
-    
-      <meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png" />
-    
-  
-  
-  <meta name="twitter:title" content="AWS EC2にLet&#39;s Encryptを導入してHTTPS化する"/>
-  <meta name="twitter:description" content="AWS EC2で公開しているポートフォリオサイトがHTTPのままだったのでセキュリティ改善としてHTTPS化しました。"/>
-  
-  
-  
-  
-    <meta name="twitter:creator" content="@"/>
-  
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Mason Sonoda">
+<meta name="description" content="技術とか思考の記録">
+<meta name="generator" content="Hugo 0.54.0" />
+<title>Mason Sonoda</title>
+<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
+<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
+<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
 
 
 
-		
-		
-		<meta name="description" content="技術とか思考の記録">
-		<meta name="generator" content="Hugo 0.54.0" />
-		<title>AWS EC2にLet&#39;s Encryptを導入してHTTPS化する &middot; Monzo Sonoda</title>
-		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
-		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
-		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
+<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
 
-		
-		<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
-		
 
-		
 
-		
-	</head>
 
-    <body>
-       <nav class="main-nav">
-	
+<meta property="og:title" content="AWS EC2にLet&#39;s Encryptを導入してHTTPS化する" />
+<meta property="og:description" content="AWS EC2で公開しているポートフォリオサイトがHTTPのままだったのでセキュリティ改善としてHTTPS化しました。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://s0Hry4.github.io/posts/2019/03/httpsportfolio/" />
+<meta property="article:published_time" content="2019-03-03T17:31:05&#43;09:00"/>
+<meta property="article:modified_time" content="2019-03-03T17:31:05&#43;09:00"/>
+
+
+
+<meta itemprop="name" content="AWS EC2にLet&#39;s Encryptを導入してHTTPS化する">
+<meta itemprop="description" content="AWS EC2で公開しているポートフォリオサイトがHTTPのままだったのでセキュリティ改善としてHTTPS化しました。">
+
+
+<meta itemprop="datePublished" content="2019-03-03T17:31:05&#43;09:00" />
+<meta itemprop="dateModified" content="2019-03-03T17:31:05&#43;09:00" />
+<meta itemprop="wordCount" content="195">
+
+
+
+<meta itemprop="keywords" content="SSL,AWS,EC2," />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS EC2にLet&#39;s Encryptを導入してHTTPS化する"/>
+<meta name="twitter:description" content="AWS EC2で公開しているポートフォリオサイトがHTTPのままだったのでセキュリティ改善としてHTTPS化しました。"/>
+
+<meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png">
+
+    </head>
+<body>
+    <nav class="main-nav">
 	
 		<a href='https://s0Hry4.github.io/'> <span class="arrow">←</span>Home</a>
 	
-	<a href='https://s0Hry4.github.io/posts'>Archive</a>
-	<a href='https://s0Hry4.github.io/tags'>Tags</a>
-	<a href='https://s0Hry4.github.io/about'>About</a>
 
 	
 
 	
 </nav>
 
-
-        <section id="wrapper" class="post">
-            <article>
-                <header>
-                    <h1>
-                        AWS EC2にLet&#39;s Encryptを導入してHTTPS化する
-                    </h1>
-                    <h2 class="headline">
-                    Mar 3, 2019 17:31
-                    · 195 words
-                    · 1 minute read
-                      <span class="tags">
-                      
-                      
-                          
-                              <a href="https://s0Hry4.github.io/tags/ssl">SSL</a>
-                          
-                              <a href="https://s0Hry4.github.io/tags/aws">AWS</a>
-                          
-                              <a href="https://s0Hry4.github.io/tags/ec2">EC2</a>
-                          
-                      
-                      
-                      </span>
-                    </h2>
-                </header>
-                
-                  
-                    <div id="toc">
-                      <nav id="TableOfContents">
-<ul>
-<li><a href="#概要">概要</a></li>
-<li><a href="#let-s-encryptとは">Let&rsquo;s Encryptとは</a></li>
-<li><a href="#導入">導入</a>
-<ul>
-<li><a href="#環境">環境</a></li>
-<li><a href="#ec2のセキュリティグループを設定する">EC2のセキュリティグループを設定する</a></li>
-<li><a href="#certbotをインストールする">certbotをインストールする</a></li>
-<li><a href="#ssl証明書を発行する">SSL証明書を発行する</a></li>
-<li><a href="#mod-sslの設定をする">mod_sslの設定をする</a></li>
-<li><a href="#ssl証明書の更新をcronで自動化する">SSL証明書の更新をcronで自動化する</a></li>
-</ul></li>
-<li><a href="#参考記事">参考記事</a></li>
-</ul>
-</nav>
-                    </div>
-                  
-                
-                <section id="post-body">
-                    
+    <section id="wrapper">
+        
+        
+<article class="post">
+    <header>
+        <h1>AWS EC2にLet&#39;s Encryptを導入してHTTPS化する</h1>
+        <h2 class="subtitle">AWS EC2で公開しているポートフォリオサイトがHTTPのままだったのでセキュリティ改善としてHTTPS化しました。</h2>
+        <h2 class="headline">
+        March 3, 2019
+        <br>
+        
+        
+            
+                <a href="https://s0Hry4.github.io/tags/ssl">SSL</a>
+            
+                <a href="https://s0Hry4.github.io/tags/aws">AWS</a>
+            
+                <a href="https://s0Hry4.github.io/tags/ec2">EC2</a>
+            
+        
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        
 
 <h1 id="概要">概要</h1>
 
@@ -240,16 +216,11 @@ SSLCertificateChainFile /etc/letsencrypt/live/[ドメイン名]/chain.pem
 
 <p><a href="https://qiita.com/MashMorgan/items/56498f276c54406b1928">AWS EC2にLet&rsquo;s Encryptを導入してみた</a></p>
 
-                </section>
-            </article>
+    </section>
+</article>
 
-            
 
-            
-
-            
-
-            <footer id="footer">
+        <footer id="footer">
     
         <div id="social">
 
@@ -260,18 +231,6 @@ SSLCertificateChainFile /etc/letsencrypt/live/[ドメイン名]/chain.pem
         roundedgithub
     </a>
     
-    <a class="symbol" href="https://www.instagram.com/nasubi_n/">
-        roundedinstagram
-    </a>
-    
-    <a class="symbol" href="https://paprikatengoku.tumblr.com/">
-        roundedtumblr
-    </a>
-    
-    <a class="symbol" href="https://www.twitter.com/cRn4s">
-        roundedtwitterbird
-    </a>
-    
 
 
 </div>
@@ -279,26 +238,20 @@ SSLCertificateChainFile /etc/letsencrypt/live/[ドメイン名]/chain.pem
     
     <p class="small">
     
-        &copy; 2019 MonzoSonoda
+        &copy; 2019 MasonSonoda
     
-    </p>
-    <p class="small">
-        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
 </footer>
 
-        </section>
-
-        <script src="https://s0Hry4.github.io/js/jquery-3.3.1.min.js"></script>
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://s0Hry4.github.io/js/main.js"></script>
-<script src="https://s0Hry4.github.io/js/highlight.min.js"></script>
+<script src="https://s0Hry4.github.io/js/highlight.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
 
 
 
-
-
-    </body>
+</body>
 </html>
