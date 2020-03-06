@@ -44,13 +44,13 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/aws/</loc>
+    <loc>https://s0Hry4.github.io/categories/aws/</loc>
     <lastmod>2019-03-03T17:31:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/categories/aws/</loc>
+    <loc>https://s0Hry4.github.io/tags/aws/</loc>
     <lastmod>2019-03-03T17:31:05+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -62,13 +62,13 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/commands/</loc>
+    <loc>https://s0Hry4.github.io/categories/commands/</loc>
     <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/categories/commands/</loc>
+    <loc>https://s0Hry4.github.io/tags/commands/</loc>
     <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -80,25 +80,25 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/ec2/</loc>
-    <lastmod>2019-03-03T17:31:05+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://s0Hry4.github.io/categories/ec2/</loc>
     <lastmod>2019-03-03T17:31:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/gcp/</loc>
-    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
+    <loc>https://s0Hry4.github.io/tags/ec2/</loc>
+    <lastmod>2019-03-03T17:31:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://s0Hry4.github.io/categories/gcp/</loc>
+    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/gcp/</loc>
     <lastmod>2019-07-09T10:49:54+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -110,20 +110,14 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/googlemapsapi/</loc>
-    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://s0Hry4.github.io/categories/googlemapsapi/</loc>
     <lastmod>2019-07-09T10:49:54+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/hugo/</loc>
-    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
+    <loc>https://s0Hry4.github.io/tags/googlemapsapi/</loc>
+    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -134,13 +128,19 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/jsfiddle/</loc>
-    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
+    <loc>https://s0Hry4.github.io/tags/hugo/</loc>
+    <lastmod>2019-02-18T12:41:12+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://s0Hry4.github.io/categories/jsfiddle/</loc>
+    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/jsfiddle/</loc>
     <lastmod>2019-07-09T10:49:54+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -164,13 +164,13 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/ssl/</loc>
+    <loc>https://s0Hry4.github.io/categories/ssl/</loc>
     <lastmod>2019-03-03T17:31:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/categories/ssl/</loc>
+    <loc>https://s0Hry4.github.io/tags/ssl/</loc>
     <lastmod>2019-03-03T17:31:05+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -182,25 +182,25 @@
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/vagrant/</loc>
-    <lastmod>2019-07-08T11:44:05+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://s0Hry4.github.io/categories/vagrant/</loc>
     <lastmod>2019-07-08T11:44:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/tags/virtualbox/</loc>
+    <loc>https://s0Hry4.github.io/tags/vagrant/</loc>
     <lastmod>2019-07-08T11:44:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://s0Hry4.github.io/categories/virtualbox/</loc>
+    <lastmod>2019-07-08T11:44:05+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/virtualbox/</loc>
     <lastmod>2019-07-08T11:44:05+09:00</lastmod>
     <priority>0</priority>
   </url>

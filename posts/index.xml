@@ -32,8 +32,7 @@ JSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Api�
 https://stackoverflow.com/questions/27956287/how-to-properly-load-google-map-api-in-jsfiddle
 APIキーの「ウェブサイト制限」で以下のドメインをHTTPリファラーに追加する。
 jsfiddle.net jshell.net *.jshell.net  地図も表示されコードも全部動いて解決。懸念点として、他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。
-&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
-本当は自分のプロジェクトのみにしたくてjsfiddle.net/[ユーザーID]/*とかで登録してみたけどなんか上手くいかなかった。要調査。 本当は自分のプロジェクトのみにしたくてjsfiddle.net/[ユーザーID]/*とかで登録してみたけどなぜか上手くいかなかった。 &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; 37de6a9915fac3fb15166c7e0278bdb6b544c6a0</description>
+本当は自分のプロジェクトのみにしたくてjsfiddle.net/[ユーザーID]/*とかで登録してみたけどなんか上手くいかなかった。要調査。</description>
     </item>
     
     <item>
