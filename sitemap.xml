@@ -3,18 +3,68 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://s0Hry4.github.io/posts/2020/02/apiblueprint/</loc>
-    <lastmod>2020-02-14T15:27:18+09:00</lastmod>
+    <loc>https://s0Hry4.github.io/categories/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/laravel/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/categories/laravel/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/posts/2020/03/02/laraveldeploy/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/php/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/categories/php/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://s0Hry4.github.io/posts/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/</loc>
+    <lastmod>2020-03-02T15:59:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/aglio/</loc>
     <lastmod>2020-02-14T15:27:18+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://s0Hry4.github.io/categories/</loc>
-    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
+    <loc>https://s0Hry4.github.io/categories/aglio/</loc>
+    <lastmod>2020-02-14T15:27:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/tags/apiblueprint/</loc>
+    <lastmod>2020-02-14T15:27:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/categories/apiblueprint/</loc>
+    <lastmod>2020-02-14T15:27:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://s0Hry4.github.io/posts/2020/02/apiblueprint/</loc>
+    <lastmod>2020-02-14T15:27:18+09:00</lastmod>
   </url>
   
   <url>
@@ -49,11 +99,6 @@
   
   <url>
     <loc>https://s0Hry4.github.io/posts/2019/07/jsfiddlegma/</loc>
-    <lastmod>2019-07-09T10:49:54+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://s0Hry4.github.io/tags/</loc>
     <lastmod>2019-07-09T10:49:54+09:00</lastmod>
   </url>
   

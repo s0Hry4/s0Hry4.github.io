@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="Laravelを別環境にデプロイする時のメモ"/>
+  <meta name="twitter:description" content="LaravelプロジェクトをAWS EC2サーバーにデプロイする時にてこずった時のメモ"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@"/>
+  
+
+
+
+		
+		
+		<meta name="description" content="技術とか思考の記録">
+		<meta name="generator" content="Hugo 0.67.0" />
+		<title>Laravelを別環境にデプロイする時のメモ &middot; Mason Sonoda</title>
+		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://s0Hry4.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://s0Hry4.github.io/posts'>Archive</a>
+	<a href='https://s0Hry4.github.io/tags'>Tags</a>
+	<a href='https://s0Hry4.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Laravelを別環境にデプロイする時のメモ
+                    </h1>
+                    <h2 class="headline">
+                    Mar 2, 2020 15:59
+                    · 219 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://s0Hry4.github.io/tags/laravel">Laravel</a>
+                          
+                              <a href="https://s0Hry4.github.io/tags/php">PHP</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#php-fpmの設定">php-fpmの設定</a></li>
+    <li><a href="#nginxの設定">nginxの設定</a></li>
+    <li><a href="#composerインストール">composerインストール</a></li>
+    <li><a href="#laravelプロジェクトをクローン">Laravelプロジェクトをクローン</a></li>
+    <li><a href="#公開用ディレクトリを作成">公開用ディレクトリを作成</a></li>
+    <li><a href="#パッケージをインストール">パッケージをインストール</a></li>
+    <li><a href="#storageのパーミッションを変更">storageのパーミッションを変更</a></li>
+    <li><a href="#envファイルを作成">.envファイルを作成</a></li>
+    <li><a href="#encryption-keyを設定">encryption keyを設定</a></li>
+    <li><a href="#キャッシュ更新">キャッシュ更新</a></li>
+  </ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <h2 id="概要">概要</h2>
+<p>ローカル環境(Homestead)で開発したLaravelプロジェクトをAWS EC2サーバーなど別環境にデプロイする時にてこずったのでその時のメモ。Homesteadがよしなにやってくれていた設定を自分でやる必要がある。</p>
+<h2 id="php-fpmの設定">php-fpmの設定</h2>
+<pre><code>$sudo vi /etc/php-fpm.d/www.conf
+
+# 変更箇所のみ抜粋
+
+user = nginx
+group = nginx
+
+listen = /var/run/php-fpm/php-fpm.sock
+
+listen.owner = nginx
+listen.group = nginx
+
+;listen.acl_users = apache,nginx
+
+// 起動する
+$sudo service php-fpm start
+
+// php-fpm.sockの権限を変えておく
+$sudo chmod 755 -R /var/run/php-fpm/php-fpm.sock
+</code></pre><h2 id="nginxの設定">nginxの設定</h2>
+<pre><code>$cd /etc/nginx/conf.d
+$sudo cp virtual.conf sample_project.conf
+</code></pre><pre><code>server {
+    listen 80;
+    #listen 443 ssl http2;
+    server_name ca-go.net;
+    root &quot;/var/www/html/sample_project&quot;;
+
+    index index.html index.htm index.php;
+
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    sendfile off;
+
+    client_max_body_size 100m;
+
+    location ~ \.php$ {
+         fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+         fastcgi_index  index.php;
+         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+         include        fastcgi_params;
+     }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+</code></pre><h2 id="composerインストール">composerインストール</h2>
+<pre><code>$php -r &quot;readfile('https://getcomposer.org/installer');&quot; | php
+
+$sudo mv composer.phar /usr/local/bin/composer
+
+$composer
+</code></pre><h2 id="laravelプロジェクトをクローン">Laravelプロジェクトをクローン</h2>
+<pre><code>$cd /var/www/html
+
+$git clone [sample_projectのgitリポジトリURL]
+</code></pre><h2 id="公開用ディレクトリを作成">公開用ディレクトリを作成</h2>
+<p>この設定でsample.htmlなど公開したくないファイルを除外する。Laravelプロジェクトディレクトリと公開用ディレクトリを分けてシンボリックシンクで管理する。</p>
+<pre><code>// 公開用ディレクトリ作成
+$cd /var/www/html
+$mkdir sample_project_public
+$cd sample_project_public
+// 書き換えるファイルをコピー
+$cp ../sample_project/public index.php index.php
+$cp ../sample_project/public .htaccess .htaccess
+
+// 必要なファイルのシンボリックリンクを作成
+$ln -s ../sample_project/public/css css
+$ln -s ../sample_project/public/img img
+$ln -s ../sample_project/public/js js
+$ln -s ../sample_project/public/robots.txt robots.txt
+$ln -s ../sample_project/public/favicon.ico favicon.ico
+$ln -s ../sample_project/public/sass sass
+</code></pre><p>index.phpを修正</p>
+<pre><code>$vi sample_project/index.php
+
+// パスを修正
+######
+require __DIR__.'/../sample_project/vendor/autoload.php';
+
+$app = require_once __DIR__.'/../sample_project/bootstrap/app.php';
+######
+</code></pre><p>.htaccessを修正</p>
+<pre><code>$vi sample_project_public/.htaccess
+
+// これを消す
+&lt;IfModule mod_negotiation.c&gt;
+        Options -MultiViews -Indexes
+&lt;/IfModule&gt;
+</code></pre><h2 id="パッケージをインストール">パッケージをインストール</h2>
+<p>新しいパッケージなどを追加したらデプロイ先でアップデートする</p>
+<pre><code>$cd sample_project
+$composer install
+</code></pre><h2 id="storageのパーミッションを変更">storageのパーミッションを変更</h2>
+<pre><code>$sudo chmod -R 777 storage
+</code></pre><h2 id="envファイルを作成">.envファイルを作成</h2>
+<pre><code>$cp .env.example .env
+</code></pre><h2 id="encryption-keyを設定">encryption keyを設定</h2>
+<pre><code>php artisan key:generate
+
+# .envに自動で追記される
+</code></pre><h2 id="キャッシュ更新">キャッシュ更新</h2>
+<pre><code>$php artisan config:cache
+
+Configuration cache cleared!
+Configuration cached successfully!
+</code></pre>
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/s0Hry4">
+        roundedgithub
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (c) 2019 MasonSonoda
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://s0Hry4.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://s0Hry4.github.io/js/main.js"></script>
+<script src="https://s0Hry4.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

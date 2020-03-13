@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on Mason Sonoda</title>
+    <link>https://s0Hry4.github.io/categories/laravel/</link>
+    <description>Recent content in Laravel on Mason Sonoda</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 02 Mar 2020 15:59:37 +0900</lastBuildDate>
+    
+	<atom:link href="https://s0Hry4.github.io/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Laravelを別環境にデプロイする時のメモ</title>
+      <link>https://s0Hry4.github.io/posts/2020/03/02/laraveldeploy/</link>
+      <pubDate>Mon, 02 Mar 2020 15:59:37 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/posts/2020/03/02/laraveldeploy/</guid>
+      <description>概要 ローカル環境(Homestead)で開発したLaravelプロジェクトをAWS EC2サーバーなど別環境にデプロイする時にてこずったのでその時のメモ。Homesteadがよしなにやってくれていた設定を自分でやる必要がある。
+php-fpmの設定 $sudo vi /etc/php-fpm.d/www.conf # 変更箇所のみ抜粋 user = nginx group = nginx listen = /var/run/php-fpm/php-fpm.sock listen.owner = nginx listen.group = nginx ;listen.acl_users = apache,nginx // 起動する $sudo service php-fpm start // php-fpm.sockの権限を変えておく $sudo chmod 755 -R /var/run/php-fpm/php-fpm.sock nginxの設定 $cd /etc/nginx/conf.d $sudo cp virtual.conf sample_project.conf server { listen 80; #listen 443 ssl http2; server_name ca-go.net; root &amp;quot;/var/www/html/sample_project&amp;quot;; index index.html index.htm index.php; charset utf-8; location / { try_files $uri $uri/ /index.</description>
+    </item>
+    
+  </channel>
+</rss>

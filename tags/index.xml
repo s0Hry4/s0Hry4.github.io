@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Mason Sonoda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Tue, 09 Jul 2019 10:49:54 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2020 15:59:37 +0900</lastBuildDate>
     
 	<atom:link href="https://s0Hry4.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Laravel</title>
+      <link>https://s0Hry4.github.io/tags/laravel/</link>
+      <pubDate>Mon, 02 Mar 2020 15:59:37 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://s0Hry4.github.io/tags/php/</link>
+      <pubDate>Mon, 02 Mar 2020 15:59:37 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aglio</title>
+      <link>https://s0Hry4.github.io/tags/aglio/</link>
+      <pubDate>Fri, 14 Feb 2020 15:27:18 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/tags/aglio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>APIBlueprint</title>
+      <link>https://s0Hry4.github.io/tags/apiblueprint/</link>
+      <pubDate>Fri, 14 Feb 2020 15:27:18 +0900</pubDate>
+      
+      <guid>https://s0Hry4.github.io/tags/apiblueprint/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>GCP</title>

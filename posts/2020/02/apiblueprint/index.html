@@ -14,13 +14,7 @@
   
   
   <meta name="twitter:title" content="Apiblueprintを使ってみた"/>
-  <meta name="twitter:description" content="APIBlueprintとは 公式ドキュメント
-https://apiblueprint.org/documentation/tutorial.html
-APIの仕様をMarkdown記法で記述できる言語。また、aglioコマンドで自動でHTMLファイルを生成しブラウザ上で閲覧ができる。
-特徴  API設計書のテンプレートとして使える テキストベースなのでgit管理しやすい ローカルにモックサーバーを立てることができテストしやすい  導入 Homebrewのインストール /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; バージョン確認
-brew -v nodebrewのインストール brew install nodebrew バージョン確認
-nodebrew -v node.jsインストール // インストール可能なバージョンの確認 nodebrew ls-remote // インストール先のディレクトリを作成 mkdir -p ~/.nodebrew/src // 最新の安定版をインストール nodebrew install-binary stable // インストールされたバージョンを確認 nodebrew ls // 使用するバージョンを指定 nodebrew use v12.14.1 // パスの設定 echo &#39;export PATH=$PATH:/Users/[ユーザー]/.nodebrew/current/bin&#39; &gt;&gt; ~/.bashrc // 反映 cd source .bashrc バージョン確認
-node -v npm -v aglioのインストール npm install -g aglio とりあえず環境構築は以上。"/>
+  <meta name="twitter:description" content="APIBlueprintでAPI仕様書を作る時の環境構築など"/>
   
   
   
@@ -76,6 +70,14 @@ node -v npm -v aglioのインストール npm install -g aglio とりあえず�
                     · 1 minute read
                       <span class="tags">
                       
+                      
+                          
+                              <a href="https://s0Hry4.github.io/tags/apiblueprint">APIBlueprint</a>
+                          
+                              <a href="https://s0Hry4.github.io/tags/aglio">aglio</a>
+                          
+                      
+                      
                       </span>
                     </h2>
                 </header>
@@ -84,40 +86,47 @@ node -v npm -v aglioのインストール npm install -g aglio とりあえず�
                     <div id="toc">
                       <nav id="TableOfContents">
   <ul>
-    <li><a href="#homebrewのインストール">Homebrewのインストール</a></li>
-    <li><a href="#nodebrewのインストール">nodebrewのインストール</a></li>
-    <li><a href="#nodejsインストール">node.jsインストール</a></li>
-    <li><a href="#aglioのインストール">aglioのインストール</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#aglioコマンド">aglioコマンド</a></li>
+    <li><a href="#apiblueprintとは">APIBlueprintとは</a></li>
+    <li><a href="#特徴">特徴</a></li>
+    <li><a href="#導入">導入</a>
+      <ul>
+        <li><a href="#homebrewのインストール">Homebrewのインストール</a></li>
+        <li><a href="#nodebrewのインストール">nodebrewのインストール</a></li>
+        <li><a href="#nodejsインストール">node.jsインストール</a></li>
+        <li><a href="#aglioのインストール">aglioのインストール</a></li>
+      </ul>
+    </li>
+    <li><a href="#使ってみる">使ってみる</a>
+      <ul>
+        <li><a href="#aglioコマンド">aglioコマンド</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                     </div>
                   
                 
                 <section id="post-body">
-                    <h1 id="apiblueprintとは">APIBlueprintとは</h1>
+                    <h2 id="apiblueprintとは">APIBlueprintとは</h2>
 <p>公式ドキュメント</p>
 <p><a href="https://apiblueprint.org/documentation/tutorial.html">https://apiblueprint.org/documentation/tutorial.html</a></p>
 <p>APIの仕様をMarkdown記法で記述できる言語。また、aglioコマンドで自動でHTMLファイルを生成しブラウザ上で閲覧ができる。</p>
-<h1 id="特徴">特徴</h1>
+<h2 id="特徴">特徴</h2>
 <ul>
 <li>API設計書のテンプレートとして使える</li>
 <li>テキストベースなのでgit管理しやすい</li>
 <li>ローカルにモックサーバーを立てることができテストしやすい</li>
 </ul>
-<h1 id="導入">導入</h1>
-<h2 id="homebrewのインストール">Homebrewのインストール</h2>
+<h2 id="導入">導入</h2>
+<h3 id="homebrewのインストール">Homebrewのインストール</h3>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre><p>バージョン確認</p>
 <pre><code>brew -v
-</code></pre><h2 id="nodebrewのインストール">nodebrewのインストール</h2>
+</code></pre><h3 id="nodebrewのインストール">nodebrewのインストール</h3>
 <pre><code>brew install nodebrew
 </code></pre><p>バージョン確認</p>
 <pre><code>nodebrew -v
-</code></pre><h2 id="nodejsインストール">node.jsインストール</h2>
+</code></pre><h3 id="nodejsインストール">node.jsインストール</h3>
 <pre><code>// インストール可能なバージョンの確認
 nodebrew ls-remote
 // インストール先のディレクトリを作成
@@ -136,12 +145,12 @@ source .bashrc
 </code></pre><p>バージョン確認</p>
 <pre><code>node -v
 npm -v
-</code></pre><h2 id="aglioのインストール">aglioのインストール</h2>
+</code></pre><h3 id="aglioのインストール">aglioのインストール</h3>
 <pre><code>npm install -g aglio
 </code></pre><p>とりあえず環境構築は以上。</p>
-<h1 id="使ってみる">使ってみる</h1>
+<h2 id="使ってみる">使ってみる</h2>
 <p>記法に従って仕様書を作成する。拡張子は<code>.apib</code>で保存する。</p>
-<h2 id="aglioコマンド">aglioコマンド</h2>
+<h3 id="aglioコマンド">aglioコマンド</h3>
 <p><strong>ローカルサーバーを起動する</strong></p>
 <p>localhost:3000にアクセスすると指定した.apibファイルがブラウザ上で閲覧できる。</p>
 <p>.apibファイルを編集すると変更がリアルタイムで反映される。</p>
