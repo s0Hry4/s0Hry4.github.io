@@ -1,92 +1,102 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
 	<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Mason Sonoda">
-<meta name="description" content="技術とか思考の記録">
-<meta name="generator" content="Hugo 0.54.0" />
-<title>Mason Sonoda</title>
-<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
-<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
-<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))"/>
+  <meta name="twitter:description" content="Vagrantが急に起動できなくなったのでその時の対処をメモ"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@"/>
+  
 
 
 
-<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
+		
+		<meta name="description" content="技術とか思考の記録">
+		<meta name="generator" content="Hugo 0.67.0" />
+		<title>Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005)) &middot; Mason Sonoda</title>
+		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
 
+		
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
 
+		
 
+		
+	</head>
 
-<meta property="og:title" content="Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))" />
-<meta property="og:description" content="Vagrantが急に起動できなくなったのでその時の対処をメモ" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://s0Hry4.github.io/posts/2019/07/vagrant0x80004005/" />
-<meta property="article:published_time" content="2019-07-08T11:44:05&#43;09:00"/>
-<meta property="article:modified_time" content="2019-07-08T11:44:05&#43;09:00"/>
-
-
-
-<meta itemprop="name" content="Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))">
-<meta itemprop="description" content="Vagrantが急に起動できなくなったのでその時の対処をメモ">
-
-
-<meta itemprop="datePublished" content="2019-07-08T11:44:05&#43;09:00" />
-<meta itemprop="dateModified" content="2019-07-08T11:44:05&#43;09:00" />
-<meta itemprop="wordCount" content="281">
-
-
-
-<meta itemprop="keywords" content="Vagrant,VirtualBox," />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))"/>
-<meta name="twitter:description" content="Vagrantが急に起動できなくなったのでその時の対処をメモ"/>
-
-<meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png">
-
-    </head>
-<body>
-    <nav class="main-nav">
+    <body>
+       <nav class="main-nav">
+	
 	
 		<a href='https://s0Hry4.github.io/'> <span class="arrow">←</span>Home</a>
 	
+	<a href='https://s0Hry4.github.io/posts'>Archive</a>
+	<a href='https://s0Hry4.github.io/tags'>Tags</a>
+	<a href='https://s0Hry4.github.io/about'>About</a>
 
 	
 
 	
 </nav>
 
-    <section id="wrapper">
-        
-        
-<article class="post">
-    <header>
-        <h1>Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))</h1>
-        <h2 class="subtitle">Vagrantが急に起動できなくなったのでその時の対処をメモ</h2>
-        <h2 class="headline">
-        July 8, 2019
-        <br>
-        
-        
-            
-                <a href="https://s0Hry4.github.io/tags/vagrant">Vagrant</a>
-            
-                <a href="https://s0Hry4.github.io/tags/virtualbox">VirtualBox</a>
-            
-        
-        
-        </h2>
-    </header>
-    <section id="post-body">
-        
 
-<h1 id="現象">現象</h1>
-
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Vagrantが急に起動できなくなった(NS_ERROR_FAILURE (0x80004005))
+                    </h1>
+                    <h2 class="headline">
+                    Jul 8, 2019 11:44
+                    · 281 words
+                    · 2 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://s0Hry4.github.io/tags/vagrant">Vagrant</a>
+                          
+                              <a href="https://s0Hry4.github.io/tags/virtualbox">VirtualBox</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#virtualboxをアップデート">VirtualBoxをアップデート</a></li>
+    <li><a href="#vagrantをアップデート">Vagrantをアップデート</a></li>
+  </ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <h1 id="現象">現象</h1>
 <p><code>vagrant up</code>したら以下のようなエラーが表示され起動できなくなりました。
 特に何かを変更した覚えもない。</p>
-
 <pre><code>There was an error while executing `VBoxManage`, a CLI used by Vagrant
 for controlling VirtualBox. The command and stderr is shown below.
 
@@ -95,20 +105,13 @@ Command: [&quot;startvm&quot;, &quot;07dcb84a-1c56-4422-8abc-4a5c4077d7b1&quot;,
 Stderr: VBoxManage: error: The virtual machine 'xxxxxx_xxxxx_xxxxxxxxxxxxxx_xxxxx' has terminated unexpectedly during startup because of signal 6
 VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component MachineWrap, interface IMachine
 
-</code></pre>
-
-<h1 id="対応">対応</h1>
-
+</code></pre><h1 id="対応">対応</h1>
 <p>エラーコード検索して出てきたQiita記事。
 <a href="https://qiita.com/k-yamada-github/items/22372515bea03d14cd30">https://qiita.com/k-yamada-github/items/22372515bea03d14cd30</a></p>
-
 <h2 id="virtualboxをアップデート">VirtualBoxをアップデート</h2>
-
 <p>とりあえずVirtualBoxのアップデートが滞っていたので最新版をインストール。
 <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
-
 <p>再度<code>vagrant up</code>してみると</p>
-
 <pre><code>The provider 'virtualbox' that was requested to back the machine
 'default' is reporting that it isn't usable on this system. The
 reason is shown below:
@@ -122,17 +125,11 @@ the supported versions listed below to use Vagrant:
 A Vagrant update may also be available that adds support for the version
 you specified. Please check www.vagrantup.com/downloads.html to download
 the latest version.
-</code></pre>
-
-<p>今のvagrantのバージョンだとVBのバージョンサポートしてないからアップデートしてくれみたいな感じ。</p>
-
+</code></pre><p>今のvagrantのバージョンだとVBのバージョンサポートしてないからアップデートしてくれみたいな感じ。</p>
 <h2 id="vagrantをアップデート">Vagrantをアップデート</h2>
-
 <p><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a>
 からダウンロードしてインストール。</p>
-
 <p>もう一回<code>vagrant up</code>。またなんか出た&hellip;。</p>
-
 <pre><code>Vagrant failed to initialize at a very early stage:
 
 The plugins failed to initialize correctly. This may be due to manual
@@ -154,23 +151,22 @@ versions:
 
 Error message given during initialization: Unable to resolve dependency: user requested 'vagrant-vbguest (= 0.15.1)'
 
-</code></pre>
-
-<p>プラグインもアップデートしてねみたいな。</p>
-
+</code></pre><p>プラグインもアップデートしてねみたいな。</p>
 <p>記載されている<code>vagrant plugin update</code>を実行。</p>
-
 <pre><code>Updating installed plugins...
 All plugins are up to date.
-</code></pre>
+</code></pre><p>これで起動できました！原因は分かりませんでした&hellip;。</p>
 
-<p>これで起動できました！原因は分かりませんでした&hellip;。</p>
+                </section>
+            </article>
 
-    </section>
-</article>
+            
 
+            
 
-        <footer id="footer">
+            
+
+            <footer id="footer">
     
         <div id="social">
 
@@ -188,20 +184,26 @@ All plugins are up to date.
     
     <p class="small">
     
-        &copy; 2019 MasonSonoda
+        (c) 2019 MasonSonoda
     
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
     </p>
 </footer>
 
-    </section>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        </section>
+
+        <script src="https://s0Hry4.github.io/js/jquery-3.3.1.min.js"></script>
 <script src="https://s0Hry4.github.io/js/main.js"></script>
-<script src="https://s0Hry4.github.io/js/highlight.js"></script>
+<script src="https://s0Hry4.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
 
 
 
-</body>
+
+
+    </body>
 </html>

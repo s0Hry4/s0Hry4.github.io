@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jsfiddle on Mason Sonoda</title>
+    <title>JSFiddle on Mason Sonoda</title>
     <link>https://s0Hry4.github.io/tags/jsfiddle/</link>
-    <description>Recent content in Jsfiddle on Mason Sonoda</description>
+    <description>Recent content in JSFiddle on Mason Sonoda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 09 Jul 2019 10:49:54 +0900</lastBuildDate>
@@ -18,20 +18,20 @@
       
       <guid>https://s0Hry4.github.io/posts/2019/07/jsfiddlegma/</guid>
       <description>概要 Google Maps Apiを使ったコードをJSFiddleで共有しようとした時にAPIキーの扱いに迷ったのでその時の試行錯誤と解決策の記録。
-最初に結論  Google Clound PlatformでAPIキーのHTTPリファラーに以下のドメインを追加する。  jsfiddle.net jshell.net *.jshell.net  これでAPIキーの利用をJAFiddleからのアクセスのみに制限できる。
- APIキーで呼び出すことのできる有効なAPIを指定して制限する  // 使うAPIだけ選択 Directions API Maps JavaScript API  もし他人にキーを悪用されたとしても使用できるAPIを制限しておくことで過剰なアクセスを回避できる。
+最初に結論  Google Clound PlatformでAPIキーのHTTPリファラーに以下のドメインを追加する。  jsfiddle.net jshell.net *.jshell.net これでAPIキーの利用をJAFiddleからのアクセスのみに制限できる。
+APIキーで呼び出すことのできる有効なAPIを指定して制限する  // 使うAPIだけ選択 Directions API Maps JavaScript API もし他人にキーを悪用されたとしても使用できるAPIを制限しておくことで過剰なアクセスを回避できる。
 まえがき 元々APIキーを生成した時にローカルからしかアクセスできないようHTTPリファラーの制限をかけていた。
 JSFiddleで共有しようと思い、HTTPリファラーにJSFiddleのドメインを追加してみたものの地図がエラーで表示されず(最終的にはこのやり方であっていた。登録するドメインがダメだったぽい。)色々試すことになった。
 やってみたけどダメだったこと 1.APIキーの制限を「なし」に設定 Google Cloud PlatformのAPIキー設定で「キーの制限」を「なし」に設定する。
-エラーは解消され地図が表示された。Directions APIを使ったコードも動いた。しかし、他人にキーが悪用されてしまう危険があるので他の方法を考える。
+エラーは解消され地図が表示された。Directions APIを使ったコードも動いた。__しかし、他人にキーが悪用されてしまう危険がある__ので他の方法を考える。
 2.APIキーを指定しない 調べたら似たような悩みを持っている人の質問が見つかった。
 https://stackoverflow.com/questions/54805160/google-maps-api-key-privacy
-JSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Apiを追加してFRAMEWORKS &amp;amp; EXTENSIONSにJQueryを追加すると書いてあるので設定してみる。
- Resourcesにhttps://maps.googleapis.com/maps/api/jsを追加 javascriptの設定のFRAMEWORKS &amp;amp; EXTENSIONSにJQuery x.x.xを選択  地図は表示された。ピンを立てるコードも動いた。しかし、Directions APIを使ったコードが動かなかったのでこの方法もダメだった。
+__JSFiddleで利用する場合はAPIキーは不要。ResurcesにGoogle Maps Apiを追加してFRAMEWORKS &amp;amp; EXTENSIONSにJQueryを追加する__と書いてあるので設定してみる。
+ Resourcesにhttps://maps.googleapis.com/maps/api/jsを追加 javascriptの設定のFRAMEWORKS &amp;amp; EXTENSIONSにJQuery x.x.xを選択  地図は表示された。ピンを立てるコードも動いた。しかし、__Directions APIを使ったコードが動かなかった__のでこの方法もダメだった。
 解決策 やっぱりHTTPリファラーでいけるんじゃないかと思って調べていたら以下のページを発見。
 https://stackoverflow.com/questions/27956287/how-to-properly-load-google-map-api-in-jsfiddle
 APIキーの「ウェブサイト制限」で以下のドメインをHTTPリファラーに追加する。
-jsfiddle.net jshell.net *.jshell.net  地図も表示されコードも全部動いて解決。懸念点として、他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。
+jsfiddle.net jshell.net *.jshell.net 地図も表示されコードも全部動いて解決。懸念点として、他人のJSFiddleソースからも実行できてしまうけど制限無しよりは安全かな。
 本当は自分のプロジェクトのみにしたくてjsfiddle.net/[ユーザーID]/*とかで登録してみたけどなんか上手くいかなかった。要調査。</description>
     </item>
     

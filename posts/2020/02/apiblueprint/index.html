@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="Apiblueprintを使ってみた"/>
+  <meta name="twitter:description" content="APIBlueprintとは 公式ドキュメント
+https://apiblueprint.org/documentation/tutorial.html
+APIの仕様をMarkdown記法で記述できる言語。また、aglioコマンドで自動でHTMLファイルを生成しブラウザ上で閲覧ができる。
+特徴  API設計書のテンプレートとして使える テキストベースなのでgit管理しやすい ローカルにモックサーバーを立てることができテストしやすい  導入 Homebrewのインストール /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; バージョン確認
+brew -v nodebrewのインストール brew install nodebrew バージョン確認
+nodebrew -v node.jsインストール // インストール可能なバージョンの確認 nodebrew ls-remote // インストール先のディレクトリを作成 mkdir -p ~/.nodebrew/src // 最新の安定版をインストール nodebrew install-binary stable // インストールされたバージョンを確認 nodebrew ls // 使用するバージョンを指定 nodebrew use v12.14.1 // パスの設定 echo &#39;export PATH=$PATH:/Users/[ユーザー]/.nodebrew/current/bin&#39; &gt;&gt; ~/.bashrc // 反映 cd source .bashrc バージョン確認
+node -v npm -v aglioのインストール npm install -g aglio とりあえず環境構築は以上。"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@"/>
+  
+
+
+
+		
+		
+		<meta name="description" content="技術とか思考の記録">
+		<meta name="generator" content="Hugo 0.67.0" />
+		<title>Apiblueprintを使ってみた &middot; Mason Sonoda</title>
+		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://s0Hry4.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://s0Hry4.github.io/posts'>Archive</a>
+	<a href='https://s0Hry4.github.io/tags'>Tags</a>
+	<a href='https://s0Hry4.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Apiblueprintを使ってみた
+                    </h1>
+                    <h2 class="headline">
+                    Feb 14, 2020 15:27
+                    · 96 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#homebrewのインストール">Homebrewのインストール</a></li>
+    <li><a href="#nodebrewのインストール">nodebrewのインストール</a></li>
+    <li><a href="#nodejsインストール">node.jsインストール</a></li>
+    <li><a href="#aglioのインストール">aglioのインストール</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#aglioコマンド">aglioコマンド</a></li>
+  </ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <h1 id="apiblueprintとは">APIBlueprintとは</h1>
+<p>公式ドキュメント</p>
+<p><a href="https://apiblueprint.org/documentation/tutorial.html">https://apiblueprint.org/documentation/tutorial.html</a></p>
+<p>APIの仕様をMarkdown記法で記述できる言語。また、aglioコマンドで自動でHTMLファイルを生成しブラウザ上で閲覧ができる。</p>
+<h1 id="特徴">特徴</h1>
+<ul>
+<li>API設計書のテンプレートとして使える</li>
+<li>テキストベースなのでgit管理しやすい</li>
+<li>ローカルにモックサーバーを立てることができテストしやすい</li>
+</ul>
+<h1 id="導入">導入</h1>
+<h2 id="homebrewのインストール">Homebrewのインストール</h2>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><p>バージョン確認</p>
+<pre><code>brew -v
+</code></pre><h2 id="nodebrewのインストール">nodebrewのインストール</h2>
+<pre><code>brew install nodebrew
+</code></pre><p>バージョン確認</p>
+<pre><code>nodebrew -v
+</code></pre><h2 id="nodejsインストール">node.jsインストール</h2>
+<pre><code>// インストール可能なバージョンの確認
+nodebrew ls-remote
+// インストール先のディレクトリを作成
+mkdir -p ~/.nodebrew/src
+// 最新の安定版をインストール
+nodebrew install-binary stable
+// インストールされたバージョンを確認
+nodebrew ls
+// 使用するバージョンを指定
+nodebrew use v12.14.1
+// パスの設定
+echo 'export PATH=$PATH:/Users/[ユーザー]/.nodebrew/current/bin' &gt;&gt; ~/.bashrc
+// 反映
+cd
+source .bashrc
+</code></pre><p>バージョン確認</p>
+<pre><code>node -v
+npm -v
+</code></pre><h2 id="aglioのインストール">aglioのインストール</h2>
+<pre><code>npm install -g aglio
+</code></pre><p>とりあえず環境構築は以上。</p>
+<h1 id="使ってみる">使ってみる</h1>
+<p>記法に従って仕様書を作成する。拡張子は<code>.apib</code>で保存する。</p>
+<h2 id="aglioコマンド">aglioコマンド</h2>
+<p><strong>ローカルサーバーを起動する</strong></p>
+<p>localhost:3000にアクセスすると指定した.apibファイルがブラウザ上で閲覧できる。</p>
+<p>.apibファイルを編集すると変更がリアルタイムで反映される。</p>
+<pre><code>aglio -i &lt;filename.apib&gt; -p 3000 --server
+
+// 終了する場合
+control + c
+</code></pre><p><strong>HTMLファイルとして吐き出す</strong></p>
+<p>サーバーは起動せずHTMLファイルを出力する。</p>
+<pre><code>aglio -i &lt;filename.apib&gt; -o &lt;output.html&gt;
+</code></pre>
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://www.github.com/s0Hry4">
+        roundedgithub
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        (c) 2019 MasonSonoda
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://s0Hry4.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://s0Hry4.github.io/js/main.js"></script>
+<script src="https://s0Hry4.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+    </body>
+</html>

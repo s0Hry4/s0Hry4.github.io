@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Commands on Mason Sonoda</title>
+    <title>commands on Mason Sonoda</title>
     <link>https://s0Hry4.github.io/tags/commands/</link>
-    <description>Recent content in Commands on Mason Sonoda</description>
+    <description>Recent content in commands on Mason Sonoda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Mon, 18 Feb 2019 12:41:12 +0900</lastBuildDate>
@@ -17,15 +17,15 @@
       <pubDate>Mon, 18 Feb 2019 12:41:12 +0900</pubDate>
       
       <guid>https://s0Hry4.github.io/posts/2019/02/hugo_commands/hugo_commands/</guid>
-      <description> 自分がよく利用するコマンド、今後使いそうなコマンドのまとめ。随時更新予定。
+      <description>自分がよく利用するコマンド、今後使いそうなコマンドのまとめ。随時更新予定。
 HUGO公式リファレンス：https://gohugo.io/commands/
 1.hugo version HUGOのバージョンを確認するコマンド。
-hugo version [flags]  2.hugo new site HUGOサイトを作成するコマンド。
-hugo new site [path] [flags]  3.hugo config サイトの構成を確認する。
-hugo config [flags]  4.hugo new HUGOサイトに新しい記事を作成するコマンド。
-hugo new [path] [flags]  5.hugo HUGOサイトをビルドするコマンド。
-hugo [flags]     flags  詳細      &amp;ndash;cleanDestinationDir 元ディレクトリに無いファイルを生成ファイルから削除する   -t &amp;ndash;theme strings テーマを指定してビルドする    6.hugo server HUGOのwebサーバーを立ち上げるコマンド。主にローカルでサイトを確認する時などに使用する。
-hugo server [flags]     flags  詳細     -D &amp;ndash;buildDrafts draft(下書き)をビルド対象に含める   -E &amp;ndash;buildExpired expiryDate(期限切れ日時)を過ぎたコンテンツをビルド対象に含める   -F &amp;ndash;buildFuture publishdate(公開日時)が未来のコンテンツをビルド対象に含める   -p &amp;ndash;port int ポートを指定する。   -t &amp;ndash;theme strings テーマを使用する   -w &amp;ndash;watch ファイルの変更を監視し、必要に応じて再作成する（デフォルトはtrue）    </description>
+hugo version [flags] 2.hugo new site HUGOサイトを作成するコマンド。
+hugo new site [path] [flags] 3.hugo config サイトの構成を確認する。
+hugo config [flags] 4.hugo new HUGOサイトに新しい記事を作成するコマンド。
+hugo new [path] [flags] 5.hugo HUGOサイトをビルドするコマンド。
+hugo [flags]    flags  詳細      &amp;ndash;cleanDestinationDir 元ディレクトリに無いファイルを生成ファイルから削除する   -t &amp;ndash;theme strings テーマを指定してビルドする    6.hugo server HUGOのwebサーバーを立ち上げるコマンド。主にローカルでサイトを確認する時などに使用する。
+hugo server [flags]    flags  詳細     -D &amp;ndash;buildDrafts draft(下書き)をビルド対象に含める   -E &amp;ndash;buildExpired expiryDate(期限切れ日時)を過ぎたコンテンツをビルド対象に含める   -F &amp;ndash;buildFuture publishdate(公開日時)が未来のコンテンツをビルド対象に含める   -p &amp;ndash;port int ポートを指定する。   -t &amp;ndash;theme strings テーマを使用する   -w &amp;ndash;watch ファイルの変更を監視し、必要に応じて再作成する（デフォルトはtrue）    </description>
     </item>
     
   </channel>
