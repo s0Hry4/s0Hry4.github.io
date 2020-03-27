@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>aglio on Mason Sonoda</title>
+    <title>Aglio on Mason Sonoda</title>
     <link>https://s0Hry4.github.io/tags/aglio/</link>
-    <description>Recent content in aglio on Mason Sonoda</description>
+    <description>Recent content in Aglio on Mason Sonoda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Fri, 14 Feb 2020 15:27:18 +0900</lastBuildDate>
@@ -20,10 +20,9 @@
       <description>APIBlueprintとは 公式ドキュメント
 https://apiblueprint.org/documentation/tutorial.html
 APIの仕様をMarkdown記法で記述できる言語。また、aglioコマンドで自動でHTMLファイルを生成しブラウザ上で閲覧ができる。
-特徴  API設計書のテンプレートとして使える テキストベースなのでgit管理しやすい ローカルにモックサーバーを立てることができテストしやすい  導入 Homebrewのインストール /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; バージョン確認
-brew -v nodebrewのインストール brew install nodebrew バージョン確認
-nodebrew -v node.jsインストール // インストール可能なバージョンの確認 nodebrew ls-remote // インストール先のディレクトリを作成 mkdir -p ~/.nodebrew/src // 最新の安定版をインストール nodebrew install-binary stable // インストールされたバージョンを確認 nodebrew ls // 使用するバージョンを指定 nodebrew use v12.14.1 // パスの設定 echo &#39;export PATH=$PATH:/Users/[ユーザー]/.nodebrew/current/bin&#39; &amp;gt;&amp;gt; ~/.bashrc // 反映 cd source .bashrc バージョン確認
-node -v npm -v aglioのインストール npm install -g aglio とりあえず環境構築は以上。</description>
+特徴  API設計書のテンプレートとして使える テキストベースなのでgit管理しやすい ローカルにモックサーバーを立てることができテストしやすい  導入 Homebrewのインストール /usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  バージョン確認
+brew -v  nodebrewのインストール brew install nodebrew  バージョン確認
+nodebrew -v  node.jsインストール // インストール可能なバージョンの確認 nodebrew ls-remote // インストール先のディレクトリを作成 mkdir -p ~/.nodebrew/src // 最新の安定版をインストール nodebrew install-binary stable // インストールされたバージョンを確認 nodebrew ls // 使用するバージョンを指定 nodebrew use v12.14.1 // パスの設定 echo &#39;export PATH=$PATH:/Users/[ユーザー]/.nodebrew/current/bin&#39; &amp;gt;&amp;gt; ~/.bashrc // 反映 cd source .bashrc  バージョン確認</description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>EC2 on Mason Sonoda</title>
+    <title>Ec2 on Mason Sonoda</title>
     <link>https://s0Hry4.github.io/categories/ec2/</link>
-    <description>Recent content in EC2 on Mason Sonoda</description>
+    <description>Recent content in Ec2 on Mason Sonoda</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 03 Mar 2019 17:31:05 +0900</lastBuildDate>
@@ -24,15 +24,15 @@ https://letsencrypt.org/
 Apache 2.4.37
 EC2のセキュリティグループを設定する AWSコンソール画面にアクセスしEC2の設定を行います。セキュリティグループのインバウンド設定でHTTP(80)に加えてHTTPS(443)も許可(0.0.0.0/0)します。
  certbotをインストールする certbotとはLet’s Encryptの自動化サービスです。 EC2にSSHログインし以下のコマンドを実行してインストールします。
-// sudo権限 sudo su // culrでcertbotをインストール curl https://dl.eff.org/certbot-auto -o /usr/bin/certbot-auto // パーミションを700に変更 chmod 700 /usr/bin/certbot-auto SSL証明書を発行する 以下のコマンドを実行して証明書を発行します。各パラメータは自身の環境に合わせて変更します。
-// 証明書生成コマンド certbot-auto certonly --webroot -w [ドキュメントルート] -d [ドメイン名] --email [メールアドレス] -n --agree-tos --debug -w&amp;hellip;ドキュメントルート
+// sudo権限 sudo su // culrでcertbotをインストール curl https://dl.eff.org/certbot-auto -o /usr/bin/certbot-auto // パーミションを700に変更 chmod 700 /usr/bin/certbot-auto  SSL証明書を発行する 以下のコマンドを実行して証明書を発行します。各パラメータは自身の環境に合わせて変更します。
+// 証明書生成コマンド certbot-auto certonly --webroot -w [ドキュメントルート] -d [ドメイン名] --email [メールアドレス] -n --agree-tos --debug  -w&amp;hellip;ドキュメントルート
 -d&amp;hellip;対象ドメイン
 --email&amp;hellip;連絡用メールアドレス
 -n&amp;hellip;対話の入力をスキップ
 --agree-tos&amp;hellip;利用規約に同意する
 --debug&amp;hellip;AWSの場合は記述
 AWSでは&amp;ndash;debugオプションがないとエラーになるようです。以下はエラーになった時の表示です。AWSではまだ正式なサポートではなく実験段階のため&amp;ndash;debugオプションをつけてくださいとのこと。
-FATAL: Amazon Linux support is very experimental at present... if you would like to work on improving it, please ensure you have backups and then run this script again with the --debug flag!</description>
+FATAL: Amazon Linux support is very experimental at present.</description>
     </item>
     
   </channel>
