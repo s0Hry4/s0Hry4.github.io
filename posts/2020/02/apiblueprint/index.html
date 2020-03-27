@@ -1,86 +1,114 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
 	<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Mason Sonoda">
-<meta name="description" content="技術とか思考の記録">
-<meta name="generator" content="Hugo 0.54.0" />
-<title>Mason Sonoda</title>
-<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
-<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
-<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="Apiblueprintを使ってみた"/>
+  <meta name="twitter:description" content="APIBlueprintでAPI仕様書を作る時の環境構築など"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@"/>
+  
 
 
 
-<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
+		
+		<meta name="description" content="技術とか思考の記録">
+		<meta name="generator" content="Hugo 0.54.0" />
+		<title>Apiblueprintを使ってみた &middot; Mason Sonoda</title>
+		<link rel="shortcut icon" href="https://s0Hry4.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/style.css">
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/highlight.css">
 
+		
+		<link rel="stylesheet" href="https://s0Hry4.github.io/css/monosocialiconsfont.css">
+		
 
+		
 
+		
+	</head>
 
-<meta property="og:title" content="Apiblueprintを使ってみた" />
-<meta property="og:description" content="APIBlueprintでAPI仕様書を作る時の環境構築など" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://s0Hry4.github.io/posts/2020/02/apiblueprint/" />
-<meta property="article:published_time" content="2020-02-14T15:27:18&#43;09:00"/>
-<meta property="article:modified_time" content="2020-02-14T15:27:18&#43;09:00"/>
-
-
-
-<meta itemprop="name" content="Apiblueprintを使ってみた">
-<meta itemprop="description" content="APIBlueprintでAPI仕様書を作る時の環境構築など">
-
-
-<meta itemprop="datePublished" content="2020-02-14T15:27:18&#43;09:00" />
-<meta itemprop="dateModified" content="2020-02-14T15:27:18&#43;09:00" />
-<meta itemprop="wordCount" content="96">
-
-
-
-<meta itemprop="keywords" content="APIBlueprint,aglio," />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Apiblueprintを使ってみた"/>
-<meta name="twitter:description" content="APIBlueprintでAPI仕様書を作る時の環境構築など"/>
-
-<meta name="twitter:image" content="https://s0Hry4.github.io/images/avatar.png">
-
-    </head>
-<body>
-    <nav class="main-nav">
+    <body>
+       <nav class="main-nav">
+	
 	
 		<a href='https://s0Hry4.github.io/'> <span class="arrow">←</span>Home</a>
 	
+	<a href='https://s0Hry4.github.io/posts'>Archive</a>
+	<a href='https://s0Hry4.github.io/tags'>Tags</a>
+	<a href='https://s0Hry4.github.io/about'>About</a>
 
 	
 
 	
 </nav>
 
-    <section id="wrapper">
-        
-        
-<article class="post">
-    <header>
-        <h1>Apiblueprintを使ってみた</h1>
-        <h2 class="subtitle">APIBlueprintでAPI仕様書を作る時の環境構築など</h2>
-        <h2 class="headline">
-        February 14, 2020
-        <br>
-        
-        
-            
-                <a href="https://s0Hry4.github.io/tags/apiblueprint">APIBlueprint</a>
-            
-                <a href="https://s0Hry4.github.io/tags/aglio">aglio</a>
-            
-        
-        
-        </h2>
-    </header>
-    <section id="post-body">
-        
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Apiblueprintを使ってみた
+                    </h1>
+                    <h2 class="headline">
+                    Feb 14, 2020 15:27
+                    · 96 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://s0Hry4.github.io/tags/apiblueprint">APIBlueprint</a>
+                          
+                              <a href="https://s0Hry4.github.io/tags/aglio">aglio</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#apiblueprintとは">APIBlueprintとは</a></li>
+<li><a href="#特徴">特徴</a></li>
+<li><a href="#導入">導入</a>
+<ul>
+<li><a href="#homebrewのインストール">Homebrewのインストール</a></li>
+<li><a href="#nodebrewのインストール">nodebrewのインストール</a></li>
+<li><a href="#node-jsインストール">node.jsインストール</a></li>
+<li><a href="#aglioのインストール">aglioのインストール</a></li>
+</ul></li>
+<li><a href="#使ってみる">使ってみる</a>
+<ul>
+<li><a href="#aglioコマンド">aglioコマンド</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
 
 <h2 id="apiblueprintとは">APIBlueprintとは</h2>
 
@@ -177,11 +205,16 @@ control + c
 <pre><code>aglio -i &lt;filename.apib&gt; -o &lt;output.html&gt;
 </code></pre>
 
-    </section>
-</article>
+                </section>
+            </article>
 
+            
 
-        <footer id="footer">
+            
+
+            
+
+            <footer id="footer">
     
         <div id="social">
 
@@ -202,17 +235,23 @@ control + c
         &copy; 2019 MasonSonoda
     
     </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
 </footer>
 
-    </section>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        </section>
+
+        <script src="https://s0Hry4.github.io/js/jquery-3.3.1.min.js"></script>
 <script src="https://s0Hry4.github.io/js/main.js"></script>
-<script src="https://s0Hry4.github.io/js/highlight.js"></script>
+<script src="https://s0Hry4.github.io/js/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
 
 
 
-</body>
+
+
+    </body>
 </html>
